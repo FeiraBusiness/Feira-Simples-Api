@@ -11,5 +11,4 @@ public class Main {
         Quarkus.run(args);
     }
 
-//    teste
 }

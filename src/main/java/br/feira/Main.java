@@ -10,4 +10,6 @@ public class Main {
         System.out.println("Running main method");
         Quarkus.run(args);
     }
+
+//    teste
 }

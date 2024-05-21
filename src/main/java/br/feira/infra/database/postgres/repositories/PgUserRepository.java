@@ -1,9 +1,16 @@
 package br.feira.infra.database.postgres.repositories;
 
+import br.feira.domain.dtos.UserDTO;
 import br.feira.domain.entities.UserBO;
+import br.feira.domain.mappers.UserMapper;
 import br.feira.domain.repositories.IUserRepository;
 import br.feira.infra.database.postgres.mappers.PgUserMapper;
+import br.feira.infra.database.postgres.model.PgUser;
 import jakarta.enterprise.context.ApplicationScoped;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class PgUserRepository implements IUserRepository {
@@ -17,4 +24,11 @@ public class PgUserRepository implements IUserRepository {
         return PgUserMapper.toDomain(panacheUser);
     }
 
+    @Override
+    public List<UserDTO> findAll() {
+        List<PgUser> users = PgUser.listAll();
+
+        //Criar uma função para fazer isso sem precisar usar duas vezes o mapper;
+        return users.stream().map(PgUserMapper::toDomain).map(UserMapper::toDTO).collect(Collectors.toList());
+    }
 }

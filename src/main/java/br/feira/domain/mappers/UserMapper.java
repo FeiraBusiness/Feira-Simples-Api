@@ -28,6 +28,5 @@ public class UserMapper {
 
     public static UserBO toBO(UserDTO userDTO) {
         return new UserBO(userDTO.getId(), userDTO.getName(), userDTO.getEmail(), userDTO.getCpfCnpj(), userDTO.getGender(), userDTO.getPassword(), userDTO.getPhoneNumber(), userDTO.getIsActive(), userDTO.getAddress().stream().map(AddressMapper::toBO).collect(Collectors.toList()), userDTO.getDateOfBirth(), userDTO.getCreateAt(), userDTO.getUpdateAt());
-
     }
 }

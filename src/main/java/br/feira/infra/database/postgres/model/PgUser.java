@@ -1,8 +1,10 @@
 package br.feira.infra.database.postgres.model;
 
+import br.feira.domain.entities.UserBO;
 import br.feira.domain.enums.EnumGender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -154,4 +156,5 @@ public class PgUser extends PanacheEntityBase {
     public void setUpdateAt(LocalDateTime updateAt) {
         this.updateAt = updateAt;
     }
+
 }

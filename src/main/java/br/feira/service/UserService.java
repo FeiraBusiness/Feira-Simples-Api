@@ -9,6 +9,7 @@ import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 @ApplicationScoped
 public class UserService extends AbstractService {
@@ -25,5 +26,9 @@ public class UserService extends AbstractService {
 
     public List<UserBO> listAll() {
         return pgUserRepository.listAll();
+    }
+
+    public List<UserBO> findById(UUID id) {
+        return pgUserRepository.findById(id);
     }
 }

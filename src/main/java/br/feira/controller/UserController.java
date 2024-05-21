@@ -8,6 +8,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
+import java.util.UUID;
 
 @Path("api/user")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -23,8 +24,15 @@ public class UserController {
     }
 
     @GET
+    @Path("all")
     public List<UserBO> listAll() {
         return userService.listAll();
     }
+
+    @GET
+    public List<UserBO> findById(@HeaderParam("id") UUID id) {
+        return userService.findById(id);
+    }
+
 
 }

@@ -7,6 +7,7 @@ import br.feira.infra.database.postgres.model.PgUser;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
@@ -28,4 +29,10 @@ public class PgUserRepository implements IUserRepository {
         //Criar uma função para fazer isso sem precisar usar duas vezes o mapper;
         return users.stream().map(PgUserMapper::toDomain).collect(Collectors.toList());
     }
+
+    @Override
+    public List<UserBO> findById(UUID id) {
+        return PgUser.findById(id);
+    }
+
 }

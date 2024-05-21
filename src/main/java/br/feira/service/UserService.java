@@ -24,7 +24,7 @@ public class UserService extends AbstractService {
         return createUser.execute(dto);
     }
 
-    public List<UserDTO> findAll() {
-        return pgUserRepository.findAll();
+    public List<UserBO> listAll() {
+        return pgUserRepository.listAll();
     }
 }

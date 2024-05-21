@@ -23,8 +23,8 @@ public class UserController {
     }
 
     @GET
-    public List<UserDTO> findAll(){
-        return userService.findAll();
+    public List<UserBO> listAll(){
+        return userService.listAll();
     }
 
 }

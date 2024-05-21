@@ -9,6 +9,6 @@ public interface IUserRepository {
 
   UserBO create(UserBO bo);
 
-  List<UserDTO> findAll();
+  List<UserBO> listAll();
 
 }

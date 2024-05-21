@@ -25,10 +25,10 @@ public class PgUserRepository implements IUserRepository {
     }
 
     @Override
-    public List<UserDTO> findAll() {
+    public List<UserBO> listAll() {
         List<PgUser> users = PgUser.listAll();
 
         //Criar uma função para fazer isso sem precisar usar duas vezes o mapper;
-        return users.stream().map(PgUserMapper::toDomain).map(UserMapper::toDTO).collect(Collectors.toList());
+        return users.stream().map(PgUserMapper::toDomain).collect(Collectors.toList());
     }
 }

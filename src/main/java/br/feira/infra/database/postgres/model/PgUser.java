@@ -1,17 +1,12 @@
 package br.feira.infra.database.postgres.model;
 
-import br.feira.domain.entities.UserBO;
 import br.feira.domain.enums.EnumGender;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -44,8 +39,8 @@ public class PgUser extends PanacheEntityBase {
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;
 
-//    @JsonIgnoreProperties("user")
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    //    @JsonIgnoreProperties("user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<PgAddress> address;
 
     @Column(name = "DATE_OF_BIRTH")

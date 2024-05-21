@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GET
-    public List<UserBO> listAll(){
+    public List<UserBO> listAll() {
         return userService.listAll();
     }
 

@@ -1,14 +1,11 @@
 package br.feira.infra.database.postgres.repositories;
 
-import br.feira.domain.dtos.UserDTO;
 import br.feira.domain.entities.UserBO;
-import br.feira.domain.mappers.UserMapper;
 import br.feira.domain.repositories.IUserRepository;
 import br.feira.infra.database.postgres.mappers.PgUserMapper;
 import br.feira.infra.database.postgres.model.PgUser;
 import jakarta.enterprise.context.ApplicationScoped;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 

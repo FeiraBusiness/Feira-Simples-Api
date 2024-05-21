@@ -7,18 +7,18 @@ import br.feira.domain.repositories.IUserRepository;
 
 public class CreateUser {
 
-  private IUserRepository repository;
+    private IUserRepository repository;
 
-  public CreateUser(IUserRepository repository) {
-    this.repository = repository;
-  }
+    public CreateUser(IUserRepository repository) {
+        this.repository = repository;
+    }
 
-  public UserDTO execute(UserDTO dto) {
-    UserBO userBO = UserMapper.toBO(dto);
+    public UserDTO execute(UserDTO dto) {
+        UserBO userBO = UserMapper.toBO(dto);
 
-    userBO = repository.create(userBO);
+        userBO = repository.create(userBO);
 
-    return UserMapper.toDTO(userBO);
-  }
+        return UserMapper.toDTO(userBO);
+    }
 
 }

@@ -1,6 +1,5 @@
 package br.feira.infra.database.postgres.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -61,7 +60,9 @@ public class PgAddress extends PanacheEntityBase {
         this.id = id;
     }
 
-    public PgUser getUser() {return user;}
+    public PgUser getUser() {
+        return user;
+    }
 
     public void setUser(PgUser user) {
         this.user = user;

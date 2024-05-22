@@ -3,11 +3,18 @@ package br.feira.domain.repositories;
 import br.feira.domain.entities.UserBO;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface IUserRepository {
 
     UserBO create(UserBO bo);
 
     List<UserBO> listAll();
+
+    UserBO findById(UUID id);
+
+    UserBO update(UUID id, UserBO bo);
+
+    UserBO delete(UUID id);
 
 }

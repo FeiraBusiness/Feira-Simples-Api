@@ -5,6 +5,7 @@ import br.feira.domain.repositories.IUserRepository;
 import br.feira.infra.database.postgres.mappers.PgUserMapper;
 import br.feira.infra.database.postgres.model.PgUser;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.ws.rs.NotFoundException;
 
 import java.util.List;
 import java.util.UUID;
@@ -31,8 +32,30 @@ public class PgUserRepository implements IUserRepository {
     }
 
     @Override
-    public List<UserBO> findById(UUID id) {
-        return PgUser.findById(id);
+    public UserBO findById(UUID id) {
+        PgUser panacheUser = PgUser.findById(id);
+
+        if (panacheUser == null) {
+            throw new NotFoundException("User ID " + id + " not found!");
+        }
+
+        return PgUserMapper.toDomain(panacheUser);
     }
+
+    @Override
+    public UserBO update(UUID id, UserBO bo) {
+        var panacheUser = PgUser.findById(id);
+
+        if (!panacheUser.isPersistent()) {
+            throw new NotFoundException("User not found");
+        }
+
+        panacheUser = PgUserMapper.toEntity(bo);
+
+        panacheUser.persist();
+
+        return PgUserMapper.toDomain((PgUser) panacheUser);
+    }
+
 
 }

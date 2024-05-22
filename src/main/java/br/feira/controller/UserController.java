@@ -6,6 +6,7 @@ import br.feira.service.UserService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,8 +31,13 @@ public class UserController {
     }
 
     @GET
-    public List<UserBO> findById(@HeaderParam("id") UUID id) {
+    public UserBO findById(@HeaderParam("id") UUID id) {
         return userService.findById(id);
+    }
+
+    @PUT
+    public UserDTO update(@HeaderParam("id") UUID id, @RequestBody UserDTO dto) {
+        return userService.update(id, dto);
     }
 
 

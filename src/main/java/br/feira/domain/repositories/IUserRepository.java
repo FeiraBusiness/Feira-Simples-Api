@@ -11,5 +11,8 @@ public interface IUserRepository {
 
     List<UserBO> listAll();
 
-    List<UserBO> findById(UUID id);
+    UserBO findById(UUID id);
+
+    UserBO update(UUID id,UserBO bo);
+
 }

@@ -13,6 +13,8 @@ public interface IUserRepository {
 
     UserBO findById(UUID id);
 
-    UserBO update(UUID id,UserBO bo);
+    UserBO update(UUID id, UserBO bo);
+
+    UserBO delete(UUID id);
 
 }

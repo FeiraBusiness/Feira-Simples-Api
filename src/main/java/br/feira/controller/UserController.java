@@ -40,5 +40,9 @@ public class UserController {
         return userService.update(id, dto);
     }
 
+    @DELETE
+    public UserDTO delete(@HeaderParam("id") UUID id) {
+        return userService.delete(id);
+    }
 
 }

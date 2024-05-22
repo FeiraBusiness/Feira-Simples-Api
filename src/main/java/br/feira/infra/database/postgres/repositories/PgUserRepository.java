@@ -44,9 +44,9 @@ public class PgUserRepository implements IUserRepository {
 
     @Override
     public UserBO update(UUID id, UserBO bo) {
-        var panacheUser = PgUser.findById(id);
+        PgUser panacheUser = PgUser.findById(id);
 
-        if (!panacheUser.isPersistent()) {
+        if (panacheUser == null) {
             throw new NotFoundException("User not found");
         }
 
@@ -54,8 +54,20 @@ public class PgUserRepository implements IUserRepository {
 
         panacheUser.persist();
 
-        return PgUserMapper.toDomain((PgUser) panacheUser);
+        return PgUserMapper.toDomain(panacheUser);
     }
 
+    @Override
+    public UserBO delete(UUID id) {
+        PgUser panacheUser = PgUser.findById(id);
+
+        if (panacheUser == null) {
+            throw new NotFoundException("User not found");
+        }
+
+        panacheUser.delete();
+
+        return PgUserMapper.toDomain(panacheUser);
+    }
 
 }

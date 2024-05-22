@@ -2,13 +2,14 @@ package br.feira.service;
 
 import br.feira.domain.dtos.UserDTO;
 import br.feira.domain.entities.UserBO;
+import br.feira.domain.mappers.UserMapper;
 import br.feira.domain.usecases.CreateUser;
+import br.feira.domain.usecases.DeleteUser;
 import br.feira.domain.usecases.UpdateUser;
 import br.feira.infra.database.postgres.repositories.PgUserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.NotFoundException;
 
 import java.util.List;
 import java.util.UUID;
@@ -39,5 +40,16 @@ public class UserService extends AbstractService {
         var updateUser = new UpdateUser(pgUserRepository);
 
         return updateUser.execute(id, dto);
+    }
+
+    @Transactional
+    public UserDTO delete(UUID id) {
+        UserBO user = pgUserRepository.findById(id);
+
+        var dto = UserMapper.toDTO(user);
+
+        var deleteUser = new DeleteUser(pgUserRepository);
+
+        return deleteUser.execute(dto);
     }
 }

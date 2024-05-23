@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class PgUserMapper {
 
     public static UserBO toDomain(PgUser entity) {
-        var userBO = new UserBO(
+        var bo = new UserBO(
                 entity.getId().toString(),
                 entity.getName(),
                 entity.getEmail(),
@@ -24,28 +24,27 @@ public class PgUserMapper {
                 entity.getCreatedAt(),
                 entity.getUpdateAt());
 
-        return userBO;
+        return bo;
     }
 
     public static PgUser toEntity(UserBO bo) {
-        var panacheUser = new PgUser();
+        var panache = new PgUser();
 
-        panacheUser.setId(bo.getId());
-        panacheUser.setName(bo.getName());
-        panacheUser.setEmail(bo.getEmail());
-        panacheUser.setCpfCnpj(bo.getCpfCnpj());
-        panacheUser.setGender(bo.getGender());
-        panacheUser.setPassword(bo.getPassword());
-        panacheUser.setPhoneNumber(bo.getPhoneNumber());
-        panacheUser.setIsActive(bo.getIsActive());
+        panache.setId(bo.getId());
+        panache.setName(bo.getName());
+        panache.setEmail(bo.getEmail());
+        panache.setCpfCnpj(bo.getCpfCnpj());
+        panache.setGender(bo.getGender());
+        panache.setPassword(bo.getPassword());
+        panache.setPhoneNumber(bo.getPhoneNumber());
+        panache.setIsActive(bo.getIsActive());
         List<PgAddress> addresses = bo.getAddress().stream().map(PgAddressMapper::toEntity).toList();
-        addresses.forEach(address -> address.setUser(panacheUser));
-        panacheUser.setAddress(addresses);
-//        panacheUser.setAddress(bo.getAddress().stream().map(PgAddressMapper::toEntity).collect(Collectors.toList()));
-        panacheUser.setDateOfBirth(bo.getDateOfBirth());
-        panacheUser.setCreatedAt(bo.getCreateAt());
-        panacheUser.setUpdateAt(bo.getUpdateAt());
+        addresses.forEach(address -> address.setUser(panache));
+        panache.setAddress(addresses);
+        panache.setDateOfBirth(bo.getDateOfBirth());
+        panache.setCreatedAt(bo.getCreateAt());
+        panache.setUpdateAt(bo.getUpdateAt());
 
-        return panacheUser;
+        return panache;
     }
 }

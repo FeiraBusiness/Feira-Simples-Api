@@ -3,9 +3,9 @@ package br.feira.service;
 import br.feira.domain.dtos.UserDTO;
 import br.feira.domain.entities.UserBO;
 import br.feira.domain.mappers.UserMapper;
-import br.feira.domain.usecases.CreateUser;
-import br.feira.domain.usecases.DeleteUser;
-import br.feira.domain.usecases.UpdateUser;
+import br.feira.domain.usecases.user.CreateUser;
+import br.feira.domain.usecases.user.DeleteUser;
+import br.feira.domain.usecases.user.UpdateUser;
 import br.feira.infra.database.postgres.repositories.PgUserRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -18,38 +18,38 @@ import java.util.UUID;
 public class UserService extends AbstractService {
 
     @Inject
-    PgUserRepository pgUserRepository;
+    PgUserRepository repository;
 
     @Transactional
     public UserDTO create(UserDTO dto) {
-        var createUser = new CreateUser(pgUserRepository);
+        var create = new CreateUser(repository);
 
-        return createUser.execute(dto);
+        return create.execute(dto);
     }
 
     public List<UserBO> listAll() {
-        return pgUserRepository.listAll();
+        return repository.listAll();
     }
 
     public UserBO findById(UUID id) {
-        return pgUserRepository.findById(id);
+        return repository.findById(id);
     }
 
     @Transactional
     public UserDTO update(UUID id, UserDTO dto) {
-        var updateUser = new UpdateUser(pgUserRepository);
+        var update = new UpdateUser(repository);
 
-        return updateUser.execute(id, dto);
+        return update.execute(id, dto);
     }
 
     @Transactional
     public UserDTO delete(UUID id) {
-        UserBO user = pgUserRepository.findById(id);
+        UserBO user = repository.findById(id);
 
         var dto = UserMapper.toDTO(user);
 
-        var deleteUser = new DeleteUser(pgUserRepository);
+        var delete = new DeleteUser(repository);
 
-        return deleteUser.execute(dto);
+        return delete.execute(dto);
     }
 }

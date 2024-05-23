@@ -16,58 +16,58 @@ public class PgUserRepository implements IUserRepository {
 
     @Override
     public UserBO create(UserBO bo) {
-        var panacheUser = PgUserMapper.toEntity(bo);
+        var panache = PgUserMapper.toEntity(bo);
 
-        panacheUser.persist();
+        panache.persist();
 
-        return PgUserMapper.toDomain(panacheUser);
+        return PgUserMapper.toDomain(panache);
     }
 
     @Override
     public List<UserBO> listAll() {
-        List<PgUser> users = PgUser.listAll();
+        List<PgUser> list = PgUser.listAll();
 
         //Criar uma função para fazer isso sem precisar usar duas vezes o mapper;
-        return users.stream().map(PgUserMapper::toDomain).collect(Collectors.toList());
+        return list.stream().map(PgUserMapper::toDomain).collect(Collectors.toList());
     }
 
     @Override
     public UserBO findById(UUID id) {
-        PgUser panacheUser = PgUser.findById(id);
+        PgUser panache = PgUser.findById(id);
 
-        if (panacheUser == null) {
+        if (panache == null) {
             throw new NotFoundException("User ID " + id + " not found!");
         }
 
-        return PgUserMapper.toDomain(panacheUser);
+        return PgUserMapper.toDomain(panache);
     }
 
     @Override
     public UserBO update(UUID id, UserBO bo) {
-        PgUser panacheUser = PgUser.findById(id);
+        PgUser panache = PgUser.findById(id);
 
-        if (panacheUser == null) {
+        if (panache == null) {
             throw new NotFoundException("User not found");
         }
 
-        panacheUser = PgUserMapper.toEntity(bo);
+        panache = PgUserMapper.toEntity(bo);
 
-        panacheUser.persist();
+        panache.persist();
 
-        return PgUserMapper.toDomain(panacheUser);
+        return PgUserMapper.toDomain(panache);
     }
 
     @Override
     public UserBO delete(UUID id) {
-        PgUser panacheUser = PgUser.findById(id);
+        PgUser panache = PgUser.findById(id);
 
-        if (panacheUser == null) {
+        if (panache == null) {
             throw new NotFoundException("User not found");
         }
 
-        panacheUser.delete();
+        panache.delete();
 
-        return PgUserMapper.toDomain(panacheUser);
+        return PgUserMapper.toDomain(panache);
     }
 
 }

@@ -1,4 +1,4 @@
-package br.feira.domain.usecases;
+package br.feira.domain.usecases.user;
 
 import br.feira.domain.dtos.UserDTO;
 import br.feira.domain.entities.UserBO;

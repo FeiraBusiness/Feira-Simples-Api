@@ -1,4 +1,4 @@
-package br.feira.controller;
+package br.feira.presenters.controller;
 
 import br.feira.domain.dtos.UserDTO;
 import br.feira.domain.entities.UserBO;
@@ -17,32 +17,32 @@ import java.util.UUID;
 public class UserController {
 
     @Inject
-    UserService userService;
+    UserService service;
 
     @POST
     public UserDTO create(UserDTO dto) {
-        return userService.create(dto);
+        return service.create(dto);
     }
 
     @GET
     @Path("all")
     public List<UserBO> listAll() {
-        return userService.listAll();
+        return service.listAll();
     }
 
     @GET
     public UserBO findById(@HeaderParam("id") UUID id) {
-        return userService.findById(id);
+        return service.findById(id);
     }
 
     @PUT
     public UserDTO update(@HeaderParam("id") UUID id, @RequestBody UserDTO dto) {
-        return userService.update(id, dto);
+        return service.update(id, dto);
     }
 
     @DELETE
     public UserDTO delete(@HeaderParam("id") UUID id) {
-        return userService.delete(id);
+        return service.delete(id);
     }
 
 }

@@ -6,21 +6,21 @@ import br.feira.domain.entities.AddressBO;
 public class AddressMapper {
 
     public static AddressDTO toDTO(AddressBO bo) {
-        AddressDTO address = new AddressDTO();
+        AddressDTO dto = new AddressDTO();
 
-        address.setId(bo.getId().toString());
-        address.setStreet(bo.getStreet());
-        address.setNumber(bo.getNumber());
-        address.setComplement(bo.getComplement());
-        address.setNeighborhood(bo.getNeighborhood());
-        address.setCity(bo.getCity());
-        address.setState(bo.getState());
-        address.setCountry(bo.getCountry());
-        address.setZipCode(bo.getZipCode());
-        address.setCreatedAt(bo.getCreatedAt());
-        address.setUpdatedAt(bo.getUpdatedAt());
+        dto.setId(bo.getId().toString());
+        dto.setStreet(bo.getStreet());
+        dto.setNumber(bo.getNumber());
+        dto.setComplement(bo.getComplement());
+        dto.setNeighborhood(bo.getNeighborhood());
+        dto.setCity(bo.getCity());
+        dto.setState(bo.getState());
+        dto.setCountry(bo.getCountry());
+        dto.setZipCode(bo.getZipCode());
+        dto.setCreatedAt(bo.getCreatedAt());
+        dto.setUpdatedAt(bo.getUpdatedAt());
 
-        return address;
+        return dto;
     }
 
     public static AddressBO toBO(AddressDTO dto) {

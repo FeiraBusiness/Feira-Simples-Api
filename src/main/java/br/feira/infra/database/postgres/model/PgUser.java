@@ -39,7 +39,6 @@ public class PgUser extends PanacheEntityBase {
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;
 
-    //    @JsonIgnoreProperties("user")
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<PgAddress> address;
 

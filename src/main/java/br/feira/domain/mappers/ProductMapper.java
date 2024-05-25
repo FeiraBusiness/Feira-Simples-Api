@@ -9,6 +9,7 @@ public class ProductMapper {
         ProductDTO dto = new ProductDTO();
 
         dto.setId(bo.getId().toString());
+        dto.setCode(bo.getCode());
         dto.setName(bo.getName());
         dto.setDescription(bo.getDescription());
         dto.setValue(bo.getValue());

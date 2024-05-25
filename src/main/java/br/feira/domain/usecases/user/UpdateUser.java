@@ -16,10 +16,10 @@ public class UpdateUser {
     }
 
     public UserDTO execute(UUID id, UserDTO dto) {
-        UserBO userBO = UserMapper.toBO(dto);
+        UserBO bo = UserMapper.toBO(dto);
 
-        userBO = repository.update(id, userBO);
+        bo = repository.update(id, bo);
 
-        return UserMapper.toDTO(userBO);
+        return UserMapper.toDTO(bo);
     }
 }

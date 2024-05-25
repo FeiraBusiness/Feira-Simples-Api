@@ -16,9 +16,9 @@ public class DeleteUser {
     }
 
     public UserDTO execute(UserDTO dto) {
-        UserBO userBO = repository.delete(dto.getId().transform(UUID::fromString));
+        UserBO bo = repository.delete(dto.getId().transform(UUID::fromString));
 
-        return UserMapper.toDTO(userBO);
+        return UserMapper.toDTO(bo);
     }
 
 }

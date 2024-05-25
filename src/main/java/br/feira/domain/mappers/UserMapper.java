@@ -1,9 +1,9 @@
 package br.feira.domain.mappers;
 
+import java.util.stream.Collectors;
+
 import br.feira.domain.dtos.UserDTO;
 import br.feira.domain.entities.UserBO;
-
-import java.util.stream.Collectors;
 
 public class UserMapper {
 
@@ -27,6 +27,9 @@ public class UserMapper {
     }
 
     public static UserBO toBO(UserDTO dto) {
-        return new UserBO(dto.getId(), dto.getName(), dto.getEmail(), dto.getCpfCnpj(), dto.getGender(), dto.getPassword(), dto.getPhoneNumber(), dto.getIsActive(), dto.getAddress().stream().map(AddressMapper::toBO).collect(Collectors.toList()), dto.getDateOfBirth(), dto.getCreateAt(), dto.getUpdateAt());
+        return new UserBO(dto.getId(), dto.getName(), dto.getEmail(), dto.getCpfCnpj(), dto.getGender(),
+                dto.getPassword(), dto.getPhoneNumber(), dto.getIsActive(),
+                dto.getAddress().stream().map(AddressMapper::toBO).collect(Collectors.toList()), dto.getDateOfBirth(),
+                dto.getCreateAt(), dto.getUpdateAt());
     }
 }

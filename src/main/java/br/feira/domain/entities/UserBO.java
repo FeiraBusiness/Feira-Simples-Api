@@ -1,10 +1,10 @@
 package br.feira.domain.entities;
 
-import br.feira.domain.enums.EnumGender;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+
+import br.feira.domain.enums.EnumGender;
 
 public class UserBO {
 
@@ -22,8 +22,9 @@ public class UserBO {
     private LocalDateTime updateAt;
 
     public UserBO(String id, String name, String email, String cpfCnpj, EnumGender gender, String password,
-                  String phoneNumber, Boolean isActive, List<AddressBO> address, LocalDateTime dateOfBirth, LocalDateTime createAt,
-                  LocalDateTime updateAt) {
+            String phoneNumber, Boolean isActive, List<AddressBO> address, LocalDateTime dateOfBirth,
+            LocalDateTime createAt,
+            LocalDateTime updateAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.name = name;
         this.email = email;
@@ -36,6 +37,18 @@ public class UserBO {
         this.dateOfBirth = dateOfBirth;
         this.createAt = createAt;
         this.updateAt = updateAt;
+    }
+
+    public void update(String email) {
+
+        if (email != null) {
+            this.email = email;
+        }
+
+    }
+
+    public void handleUpdatePassword(String newPassword) {
+        this.password = newPassword;
     }
 
     public UUID getId() {

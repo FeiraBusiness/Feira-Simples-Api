@@ -1,18 +1,24 @@
 package br.feira.presenters.controller;
 
-import br.feira.domain.dtos.OrderDTO;
-import br.feira.domain.dtos.ProductDTO;
-import br.feira.domain.entities.OrderBO;
-import br.feira.domain.entities.ProductBO;
-import br.feira.service.OrderService;
-import br.feira.service.ProductService;
-import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
-
 import java.util.List;
 import java.util.UUID;
+
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+
+import br.feira.domain.dtos.OrderDTO;
+import br.feira.domain.entities.OrderBO;
+import br.feira.service.OrderService;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 @Path("api/order")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -28,13 +34,13 @@ public class OrderController {
     }
 
     @GET
-    @Path("all")
-    public List<OrderBO> listAll() {
+    @Path("/all")
+    public List<OrderDTO> listAll() {
         return service.listAll();
     }
 
     @GET
-    public OrderBO findById(@HeaderParam("id") UUID id) {
+    public OrderDTO findById(@HeaderParam("id") UUID id) {
         return service.findById(id);
     }
 
@@ -44,8 +50,8 @@ public class OrderController {
     }
 
     @DELETE
-    public OrderDTO delete(@HeaderParam("id") UUID id) {
-        return service.delete(id);
+    public Response delete(@HeaderParam("id") UUID id) {
+        return Response.noContent().build();
     }
 
 }

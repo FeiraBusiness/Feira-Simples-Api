@@ -14,10 +14,8 @@ public class PgProductMapper {
         panache.setDescription(bo.getDescription());
         panache.setValue(bo.getValue());
         panache.setCategory(bo.getCategory());
-        panache.setStockBalance(bo.getStockBalance());
         panache.setImageUrl(bo.getImageUrl());
         panache.setWeight(bo.getWeight());
-        panache.setDiscount(bo.getDiscount());
         panache.setRating(bo.getRating());
         panache.setIsActive(bo.getIsActive());
         panache.setExpirationDate(bo.getExpirationDate());
@@ -35,10 +33,8 @@ public class PgProductMapper {
                 entity.getDescription(),
                 entity.getValue(),
                 entity.getCategory(),
-                entity.getStockBalance(),
                 entity.getImageUrl(),
                 entity.getWeight(),
-                entity.getDiscount(),
                 entity.getRating(),
                 entity.getIsActive(),
                 entity.getExpirationDate(),

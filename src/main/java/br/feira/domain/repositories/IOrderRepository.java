@@ -1,9 +1,9 @@
 package br.feira.domain.repositories;
 
-import br.feira.domain.entities.OrderBO;
-
 import java.util.List;
 import java.util.UUID;
+
+import br.feira.domain.entities.OrderBO;
 
 public interface IOrderRepository {
 
@@ -15,6 +15,6 @@ public interface IOrderRepository {
 
     OrderBO update(UUID id, OrderBO bo);
 
-    OrderBO delete(UUID id);
+    void delete(UUID id);
 
 }

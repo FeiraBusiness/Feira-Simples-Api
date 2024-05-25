@@ -2,7 +2,6 @@ package br.feira.domain.dtos;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class ProductDTO {
 
@@ -12,10 +11,8 @@ public class ProductDTO {
     private String description;
     private BigDecimal value;
     private String category;
-    private int stockBalance;
     private String imageUrl;
     private double weight;
-    private BigDecimal discount;
     private double rating;
     private boolean isActive;
     private LocalDateTime expirationDate;
@@ -70,14 +67,6 @@ public class ProductDTO {
         this.category = category;
     }
 
-    public int getStockBalance() {
-        return stockBalance;
-    }
-
-    public void setStockBalance(int stockQuantity) {
-        this.stockBalance = stockQuantity;
-    }
-
     public String getImageUrl() {
         return imageUrl;
     }
@@ -92,14 +81,6 @@ public class ProductDTO {
 
     public void setWeight(double weight) {
         this.weight = weight;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
     }
 
     public double getRating() {

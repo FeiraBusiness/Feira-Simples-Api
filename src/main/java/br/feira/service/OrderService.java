@@ -1,18 +1,19 @@
 package br.feira.service;
 
+import java.util.List;
+import java.util.UUID;
+
 import br.feira.domain.dtos.OrderDTO;
 import br.feira.domain.entities.OrderBO;
 import br.feira.domain.mappers.OrderMapper;
 import br.feira.domain.usecases.order.CreateOrder;
 import br.feira.domain.usecases.order.DeleteOrder;
+import br.feira.domain.usecases.order.FindOrderBy;
 import br.feira.domain.usecases.order.UpdateOrder;
 import br.feira.infra.database.postgres.repositories.PgOrderRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-
-import java.util.List;
-import java.util.UUID;
 
 @ApplicationScoped
 public class OrderService extends AbstractService {
@@ -27,12 +28,15 @@ public class OrderService extends AbstractService {
         return create.execute(dto);
     }
 
-    public List<OrderBO> listAll() {
-        return repository.listAll();
+    public List<OrderDTO> listAll() {
+        // return repository.listAll();
+        return null;
     }
 
-    public OrderBO findById(UUID id) {
-        return repository.findById(id);
+    public OrderDTO findById(UUID id) {
+        var find = new FindOrderBy(repository);
+
+        return find.execute(id);
     }
 
     @Transactional
@@ -43,14 +47,14 @@ public class OrderService extends AbstractService {
     }
 
     @Transactional
-    public OrderDTO delete(UUID id) {
+    public void delete(UUID id) {
         OrderBO order = repository.findById(id);
 
         var dto = OrderMapper.toDTO(order);
 
         var delete = new DeleteOrder(repository);
 
-        return delete.execute(dto);
+        delete.execute(dto);
     }
 
 }

@@ -1,10 +1,9 @@
 package br.feira.domain.repositories;
 
-import br.feira.domain.entities.ProductBO;
-import br.feira.domain.entities.UserBO;
-
 import java.util.List;
 import java.util.UUID;
+
+import br.feira.domain.entities.ProductBO;
 
 public interface IProductRepository {
 

@@ -9,7 +9,6 @@ public class PgOrderItemMapper {
         var panache = new PgOrderItem();
 
         panache.setId(bo.getId());
-//        panache.setOrder(PgOrderMapper.toEntity(bo.getOrder()));
         panache.setQuantity(bo.getQuantity());
         panache.setPrice(bo.getPrice());
         panache.setProduct(PgProductMapper.toEntity(bo.getProduct()));
@@ -22,7 +21,6 @@ public class PgOrderItemMapper {
     public static OrderItemBO toDomain(PgOrderItem entity) {
         var bo = new OrderItemBO(
                 entity.getId().toString(),
-//                PgOrderMapper.toDomain(entity.getOrder()),
                 entity.getQuantity(),
                 entity.getPrice(),
                 PgProductMapper.toDomain(entity.getProduct()),

@@ -1,5 +1,8 @@
 package br.feira.infra.database.postgres.repositories;
 
+import java.util.List;
+import java.util.UUID;
+
 import br.feira.domain.entities.OrderBO;
 import br.feira.domain.repositories.IOrderRepository;
 import br.feira.infra.database.postgres.mappers.PgOrderMapper;
@@ -7,10 +10,6 @@ import br.feira.infra.database.postgres.model.PgOrder;
 import br.feira.utils.MapperUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.NotFoundException;
-
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class PgOrderRepository implements IOrderRepository {
@@ -58,16 +57,14 @@ public class PgOrderRepository implements IOrderRepository {
     }
 
     @Override
-    public OrderBO delete(UUID id) {
+    public void delete(UUID id) {
         PgOrder panache = PgOrder.findById(id);
 
         if (panache == null) {
             throw new NotFoundException("Order not found");
         }
 
-        var isDeleted = PgOrder.deleteById(id);
-
-        return PgOrderMapper.toDomain(panache);
+        panache.delete();
     }
 
 }

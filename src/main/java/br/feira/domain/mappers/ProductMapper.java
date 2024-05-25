@@ -14,10 +14,8 @@ public class ProductMapper {
         dto.setDescription(bo.getDescription());
         dto.setValue(bo.getValue());
         dto.setCategory(bo.getCategory());
-        dto.setStockBalance(bo.getStockBalance());
         dto.setImageUrl(bo.getImageUrl());
         dto.setWeight(bo.getWeight());
-        dto.setDiscount(bo.getDiscount());
         dto.setRating(bo.getRating());
         dto.setIsActive(bo.getIsActive());
         dto.setExpirationDate(bo.getExpirationDate());
@@ -35,10 +33,8 @@ public class ProductMapper {
                 dto.getDescription(),
                 dto.getValue(),
                 dto.getCategory(),
-                dto.getStockBalance(),
                 dto.getImageUrl(),
                 dto.getWeight(),
-                dto.getDiscount(),
                 dto.getRating(),
                 dto.getIsActive(),
                 dto.getExpirationDate(),

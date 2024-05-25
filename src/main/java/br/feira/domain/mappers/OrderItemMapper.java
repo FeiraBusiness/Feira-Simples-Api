@@ -9,17 +9,16 @@ public class OrderItemMapper {
         OrderItemDTO dto = new OrderItemDTO();
 
         dto.setId(bo.getId().toString());
-//        dto.setOrder(OrderMapper.toDTO(bo.getOrder()));
         dto.setQuantity(bo.getQuantity());
-        dto.setPrice(bo.getPrice());
+        dto.setUnitaryValue(bo.getPrice());
         dto.setProduct(ProductMapper.toDTO(bo.getProduct()));
 
         return dto;
     }
 
     public static OrderItemBO toBO(OrderItemDTO dto) {
-        return new OrderItemBO(dto.getId(), dto.getQuantity(), dto.getPrice(), ProductMapper.toBO(dto.getProduct()), dto.getCreateAt(), dto.getUpdateAt());
+        return new OrderItemBO(dto.getId(), dto.getQuantity(), dto.getUnitaryValue(),
+                ProductMapper.toBO(dto.getProduct()), dto.getCreateAt(), dto.getUpdateAt());
     }
-
-//    OrderMapper.toBO(dto.getOrder())
+    
 }

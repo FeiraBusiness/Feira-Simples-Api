@@ -1,15 +1,18 @@
 package br.feira.domain.dtos;
 
-import br.feira.domain.enums.EnumOrderStatus;
-
 import java.time.LocalDateTime;
 import java.util.List;
+
+import br.feira.domain.enums.EnumOrderStatus;
 
 public class OrderDTO {
 
     private String id;
     private UserDTO user;
-    private LocalDateTime date;
+    //private SellerDTO seller;
+    //Bigdecimal discount;
+    //Bigdecimal increase;
+    //Bigdecimal netValue;
     private List<OrderItemDTO> items;
     private EnumOrderStatus status;
     private LocalDateTime createdAt;
@@ -29,14 +32,6 @@ public class OrderDTO {
 
     public void setUser(UserDTO user) {
         this.user = user;
-    }
-
-    public LocalDateTime getOrderDate() {
-        return date;
-    }
-
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.date = orderDate;
     }
 
     public List<OrderItemDTO> getItems() {

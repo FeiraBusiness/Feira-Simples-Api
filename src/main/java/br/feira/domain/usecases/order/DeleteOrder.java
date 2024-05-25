@@ -1,11 +1,9 @@
 package br.feira.domain.usecases.order;
 
-import br.feira.domain.dtos.OrderDTO;
-import br.feira.domain.entities.OrderBO;
-import br.feira.domain.mappers.OrderMapper;
-import br.feira.domain.repositories.IOrderRepository;
-
 import java.util.UUID;
+
+import br.feira.domain.dtos.OrderDTO;
+import br.feira.domain.repositories.IOrderRepository;
 
 public class DeleteOrder {
 
@@ -15,9 +13,7 @@ public class DeleteOrder {
         this.repository = repository;
     }
 
-    public OrderDTO execute(OrderDTO dto) {
-        OrderBO bo = repository.delete(dto.getId().transform(UUID::fromString));
-
-        return OrderMapper.toDTO(bo);
+    public void execute(OrderDTO dto) {
+        repository.delete(dto.getId().transform(UUID::fromString));
     }
 }

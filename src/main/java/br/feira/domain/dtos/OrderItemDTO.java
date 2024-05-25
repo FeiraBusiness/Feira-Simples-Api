@@ -6,9 +6,8 @@ import java.time.LocalDateTime;
 public class OrderItemDTO {
 
     private String id;
-//    private OrderDTO order;
     private int quantity;
-    private BigDecimal price;
+    private BigDecimal unitaryValue;
     private ProductDTO product;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
@@ -20,15 +19,7 @@ public class OrderItemDTO {
     public void setId(String id) {
         this.id = id;
     }
-
-//    public OrderDTO getOrder() {
-//        return order;
-//    }
-//
-//    public void setOrder(OrderDTO order) {
-//        this.order = order;
-//    }
-
+    
     public int getQuantity() {
         return quantity;
     }
@@ -37,12 +28,12 @@ public class OrderItemDTO {
         this.quantity = quantity;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public BigDecimal getUnitaryValue() {
+        return unitaryValue;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setUnitaryValue(BigDecimal price) {
+        this.unitaryValue = price;
     }
 
     public ProductDTO getProduct() {

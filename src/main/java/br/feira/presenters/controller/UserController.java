@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GET
-    @Path("all")
+    @Path("/all")
     public List<UserBO> listAll() {
         return service.listAll();
     }

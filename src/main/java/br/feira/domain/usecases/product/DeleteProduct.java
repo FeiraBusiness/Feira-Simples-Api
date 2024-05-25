@@ -16,9 +16,9 @@ public class DeleteProduct {
     }
 
     public ProductDTO execute(ProductDTO dto) {
-        ProductBO productBO = repository.delete(dto.getId().transform(UUID::fromString));
+        ProductBO bo = repository.delete(dto.getId().transform(UUID::fromString));
 
-        return ProductMapper.toDTO(productBO);
+        return ProductMapper.toDTO(bo);
     }
 
 }

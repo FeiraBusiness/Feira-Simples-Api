@@ -5,6 +5,25 @@ import br.feira.infra.database.postgres.model.PgAddress;
 
 public class PgAddressMapper {
 
+    public static PgAddress toEntity(AddressBO bo) {
+        var panache = new PgAddress();
+
+        panache.setId(bo.getId());
+        panache.setZipCode(bo.getZipCode());
+        panache.setStreet(bo.getStreet());
+        panache.setNumber(bo.getNumber());
+        panache.setComplement(bo.getComplement());
+        panache.setNeighborhood(bo.getNeighborhood());
+        panache.setCity(bo.getCity());
+        panache.setState(bo.getState());
+        panache.setCountry(bo.getCountry());
+        panache.setCreatedAt(bo.getCreatedAt());
+        panache.setUpdatedAt(bo.getUpdatedAt());
+
+        return panache;
+
+    }
+
     public static AddressBO toDomain(PgAddress entity) {
         var addressBO = new AddressBO(
                 entity.getId().toString(),
@@ -20,25 +39,6 @@ public class PgAddressMapper {
                 entity.getUpdatedAt());
 
         return addressBO;
-    }
-
-    public static PgAddress toEntity(AddressBO bo) {
-        var panacheAddress = new PgAddress();
-
-        panacheAddress.setId(bo.getId());
-        panacheAddress.setZipCode(bo.getZipCode());
-        panacheAddress.setStreet(bo.getStreet());
-        panacheAddress.setNumber(bo.getNumber());
-        panacheAddress.setComplement(bo.getComplement());
-        panacheAddress.setNeighborhood(bo.getNeighborhood());
-        panacheAddress.setCity(bo.getCity());
-        panacheAddress.setState(bo.getState());
-        panacheAddress.setCountry(bo.getCountry());
-        panacheAddress.setCreatedAt(bo.getCreatedAt());
-        panacheAddress.setUpdatedAt(bo.getUpdatedAt());
-
-        return panacheAddress;
-
     }
 
 }

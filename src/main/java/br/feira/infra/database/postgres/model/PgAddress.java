@@ -15,7 +15,7 @@ public class PgAddress extends PanacheEntityBase {
     @Id
     private UUID id;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     private PgUser user;
 
     @Column(name = "STREET")

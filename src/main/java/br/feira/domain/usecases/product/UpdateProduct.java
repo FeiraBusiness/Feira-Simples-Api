@@ -16,10 +16,10 @@ public class UpdateProduct {
     }
 
     public ProductDTO execute(UUID id, ProductDTO dto) {
-        ProductBO productBO = ProductMapper.toBO(dto);
+        ProductBO bo = ProductMapper.toBO(dto);
 
-        productBO = repository.update(id, productBO);
+        bo = repository.update(id, bo);
 
-        return ProductMapper.toDTO(productBO);
+        return ProductMapper.toDTO(bo);
     }
 }

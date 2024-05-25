@@ -9,24 +9,6 @@ import java.util.stream.Collectors;
 
 public class PgUserMapper {
 
-    public static UserBO toDomain(PgUser entity) {
-        var bo = new UserBO(
-                entity.getId().toString(),
-                entity.getName(),
-                entity.getEmail(),
-                entity.getCpfCnpj(),
-                entity.getGender(),
-                entity.getPassword(),
-                entity.getPhoneNumber(),
-                entity.getIsActive(),
-                entity.getAddress().stream().map(PgAddressMapper::toDomain).collect(Collectors.toList()),
-                entity.getDateOfBirth(),
-                entity.getCreatedAt(),
-                entity.getUpdateAt());
-
-        return bo;
-    }
-
     public static PgUser toEntity(UserBO bo) {
         var panache = new PgUser();
 
@@ -46,5 +28,23 @@ public class PgUserMapper {
         panache.setUpdateAt(bo.getUpdateAt());
 
         return panache;
+    }
+
+    public static UserBO toDomain(PgUser entity) {
+        var bo = new UserBO(
+                entity.getId().toString(),
+                entity.getName(),
+                entity.getEmail(),
+                entity.getCpfCnpj(),
+                entity.getGender(),
+                entity.getPassword(),
+                entity.getPhoneNumber(),
+                entity.getIsActive(),
+                entity.getAddress().stream().map(PgAddressMapper::toDomain).collect(Collectors.toList()),
+                entity.getDateOfBirth(),
+                entity.getCreatedAt(),
+                entity.getUpdateAt());
+
+        return bo;
     }
 }

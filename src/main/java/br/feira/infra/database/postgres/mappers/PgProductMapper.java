@@ -5,28 +5,6 @@ import br.feira.infra.database.postgres.model.PgProduct;
 
 public class PgProductMapper {
 
-    public static ProductBO toDomain(PgProduct entity) {
-        var bo = new ProductBO(
-                entity.getId().toString(),
-                entity.getCode(),
-                entity.getName(),
-                entity.getDescription(),
-                entity.getValue(),
-                entity.getCategory(),
-                entity.getStockBalance(),
-                entity.getImageUrl(),
-                entity.getWeight(),
-                entity.getDiscount(),
-                entity.getRating(),
-                entity.getIsActive(),
-                entity.getExpirationDate(),
-                entity.getCreatedAt(),
-                entity.getUpdatedAt()
-        );
-
-        return bo;
-    }
-
     public static PgProduct toEntity(ProductBO bo) {
         var panache = new PgProduct();
 
@@ -47,6 +25,27 @@ public class PgProductMapper {
         panache.setUpdatedAt(bo.getUpdatedAt());
 
         return panache;
+    }
+
+    public static ProductBO toDomain(PgProduct entity) {
+        var bo = new ProductBO(
+                entity.getId().toString(),
+                entity.getCode(),
+                entity.getName(),
+                entity.getDescription(),
+                entity.getValue(),
+                entity.getCategory(),
+                entity.getStockBalance(),
+                entity.getImageUrl(),
+                entity.getWeight(),
+                entity.getDiscount(),
+                entity.getRating(),
+                entity.getIsActive(),
+                entity.getExpirationDate(),
+                entity.getCreatedAt(),
+                entity.getUpdatedAt());
+
+        return bo;
     }
 
 }

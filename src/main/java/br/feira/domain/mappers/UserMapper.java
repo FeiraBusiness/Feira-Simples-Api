@@ -8,22 +8,22 @@ import java.util.stream.Collectors;
 public class UserMapper {
 
     public static UserDTO toDTO(UserBO bo) {
-        UserDTO user = new UserDTO();
+        UserDTO dto = new UserDTO();
 
-        user.setId(bo.getId().toString());
-        user.setName(bo.getName());
-        user.setEmail(bo.getEmail());
-        user.setCpfCnpj(bo.getCpfCnpj());
-        user.setGender(bo.getGender());
-        user.setPassword(bo.getPassword());
-        user.setPhoneNumber(bo.getPhoneNumber());
-        user.setIsActive(bo.getIsActive());
-        user.setAddress(bo.getAddress().stream().map(AddressMapper::toDTO).collect(Collectors.toList()));
-        user.setDateOfBirth(bo.getDateOfBirth());
-        user.setCreateAt(bo.getCreateAt());
-        user.setUpdateAt(bo.getUpdateAt());
+        dto.setId(bo.getId().toString());
+        dto.setName(bo.getName());
+        dto.setEmail(bo.getEmail());
+        dto.setCpfCnpj(bo.getCpfCnpj());
+        dto.setGender(bo.getGender());
+        dto.setPassword(bo.getPassword());
+        dto.setPhoneNumber(bo.getPhoneNumber());
+        dto.setIsActive(bo.getIsActive());
+        dto.setAddress(bo.getAddress().stream().map(AddressMapper::toDTO).collect(Collectors.toList()));
+        dto.setDateOfBirth(bo.getDateOfBirth());
+        dto.setCreateAt(bo.getCreateAt());
+        dto.setUpdateAt(bo.getUpdateAt());
 
-        return user;
+        return dto;
     }
 
     public static UserBO toBO(UserDTO dto) {

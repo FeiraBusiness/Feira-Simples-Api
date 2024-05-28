@@ -1,18 +1,20 @@
 package br.feira.domain.entities.dtos;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import br.feira.domain.entities.bo.SellerBO;
 import br.feira.domain.entities.enums.EnumOrderStatus;
 
 public class OrderDTO {
 
     private String id;
     private UserDTO user;
-    //private SellerDTO seller;
-    //Bigdecimal discount;
-    //Bigdecimal increase;
-    //Bigdecimal netValue;
+    private SellerBO seller;
+    private BigDecimal discount;
+    private BigDecimal increase;
+    private BigDecimal netValue;
     private List<OrderItemDTO> items;
     private EnumOrderStatus status;
     private LocalDateTime createdAt;

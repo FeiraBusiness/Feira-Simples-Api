@@ -1,15 +1,21 @@
 package br.feira.domain.entities.bo;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import br.feira.domain.entities.dtos.SellerDTO;
 import br.feira.domain.entities.enums.EnumOrderStatus;
 
 public class OrderBO {
 
     private UUID id;
     private UserBO user;
+    private SellerDTO seller;
+    private BigDecimal discount;
+    private BigDecimal increase;
+    private BigDecimal netValue;
     private List<OrderItemBO> items;
     private EnumOrderStatus status;
     private LocalDateTime createdAt;

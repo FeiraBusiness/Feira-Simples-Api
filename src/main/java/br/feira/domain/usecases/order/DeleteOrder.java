@@ -2,7 +2,7 @@ package br.feira.domain.usecases.order;
 
 import java.util.UUID;
 
-import br.feira.domain.dtos.OrderDTO;
+import br.feira.domain.entities.dtos.OrderDTO;
 import br.feira.domain.repositories.IOrderRepository;
 
 public class DeleteOrder {

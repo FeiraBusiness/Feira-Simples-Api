@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import br.feira.domain.entities.UserBO;
+import br.feira.domain.entities.bo.UserBO;
 import br.feira.domain.repositories.IUserRepository;
 import br.feira.infra.database.postgres.mappers.PgUserMapper;
 import br.feira.infra.database.postgres.model.PgUser;
@@ -52,7 +52,7 @@ public class PgUserRepository implements IUserRepository {
     }
 
     @Override
-    public UserBO delete(UUID id) {
+    public void delete(UUID id) {
         PgUser panache = PgUser.findById(id);
 
         if (panache == null) {
@@ -61,7 +61,6 @@ public class PgUserRepository implements IUserRepository {
 
         panache.delete();
 
-        return PgUserMapper.toDomain(panache);
     }
 
 }

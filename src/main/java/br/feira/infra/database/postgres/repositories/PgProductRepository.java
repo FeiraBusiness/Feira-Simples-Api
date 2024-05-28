@@ -1,19 +1,18 @@
 package br.feira.infra.database.postgres.repositories;
 
-import br.feira.domain.entities.ProductBO;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+import br.feira.domain.entities.bo.ProductBO;
 import br.feira.domain.repositories.IProductRepository;
 import br.feira.infra.database.postgres.mappers.PgProductMapper;
 import br.feira.infra.database.postgres.model.PgProduct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.NotFoundException;
 
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
 @ApplicationScoped
 public class PgProductRepository implements IProductRepository {
-
 
     @Override
     public ProductBO create(ProductBO bo) {
@@ -42,10 +41,8 @@ public class PgProductRepository implements IProductRepository {
     }
 
     @Override
-    public ProductBO update(UUID id, ProductBO bo) {
-        PgProduct panache = PgProduct.findById(id);
-
-        panache = PgProductMapper.toEntity(bo);
+    public ProductBO merge(ProductBO bo) {
+        PgProduct panache = PgProductMapper.toEntity(bo);
 
         panache.persist();
 
@@ -53,11 +50,9 @@ public class PgProductRepository implements IProductRepository {
     }
 
     @Override
-    public ProductBO delete(UUID id) {
+    public void delete(UUID id) {
         PgProduct panache = PgProduct.findById(id);
 
         panache.delete();
-
-        return PgProductMapper.toDomain(panache);
     }
 }

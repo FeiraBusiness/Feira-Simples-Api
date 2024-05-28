@@ -3,11 +3,11 @@ package br.feira.infra.database.postgres.repositories;
 import java.util.List;
 import java.util.UUID;
 
-import br.feira.domain.entities.OrderBO;
+import br.feira.domain.entities.bo.OrderBO;
 import br.feira.domain.repositories.IOrderRepository;
+import br.feira.domain.utils.MapperUtil;
 import br.feira.infra.database.postgres.mappers.PgOrderMapper;
 import br.feira.infra.database.postgres.model.PgOrder;
-import br.feira.utils.MapperUtil;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.NotFoundException;
 
@@ -42,18 +42,13 @@ public class PgOrderRepository implements IOrderRepository {
     }
 
     @Override
-    public OrderBO update(UUID id, OrderBO bo) {
-        PgOrder panache = PgOrder.findById(id);
-
-        if (panache == null) {
-            throw new NotFoundException("Order not found");
-        }
-
-        panache = PgOrderMapper.toEntity(bo);
+    public OrderBO merge(OrderBO bo) {
+        PgOrder panache = PgOrderMapper.toEntity(bo);
 
         panache.persist();
 
         return PgOrderMapper.toDomain(panache);
+
     }
 
     @Override

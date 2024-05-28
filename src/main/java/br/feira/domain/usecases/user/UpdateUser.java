@@ -2,9 +2,9 @@ package br.feira.domain.usecases.user;
 
 import java.util.UUID;
 
-import br.feira.domain.dtos.UserDTO;
-import br.feira.domain.entities.UserBO;
-import br.feira.domain.mappers.UserMapper;
+import br.feira.domain.entities.bo.UserBO;
+import br.feira.domain.entities.dtos.UserDTO;
+import br.feira.domain.entities.mappers.UserMapper;
 import br.feira.domain.repositories.IUserRepository;
 
 public class UpdateUser {
@@ -16,10 +16,12 @@ public class UpdateUser {
     }
 
     public UserDTO execute(UUID id, UserDTO dto) {
-        UserBO bo = UserMapper.toBO(dto);
+        UserBO bo = repository.findById(id);
 
-        bo.update(dto.getEmail());
+        if (bo == null) {
+            throw new RuntimeException("Opa! Registro não encontrado");
 
+        }
         repository.merge(bo);
 
         return UserMapper.toDTO(bo);

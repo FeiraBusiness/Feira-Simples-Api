@@ -3,7 +3,7 @@ package br.feira.domain.repositories;
 import java.util.List;
 import java.util.UUID;
 
-import br.feira.domain.entities.ProductBO;
+import br.feira.domain.entities.bo.ProductBO;
 
 public interface IProductRepository {
 
@@ -13,8 +13,8 @@ public interface IProductRepository {
 
     ProductBO findById(UUID id);
 
-    ProductBO update(UUID id, ProductBO bo);
+    ProductBO merge(ProductBO bo);
 
-    ProductBO delete(UUID id);
+    void delete(UUID id);
 
 }

@@ -5,8 +5,7 @@ import java.util.UUID;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
-import br.feira.domain.dtos.OrderDTO;
-import br.feira.domain.entities.OrderBO;
+import br.feira.domain.entities.dtos.OrderDTO;
 import br.feira.service.OrderService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -46,7 +45,7 @@ public class OrderController {
 
     @PUT
     public OrderDTO update(@HeaderParam("id") UUID id, @RequestBody OrderDTO dto) {
-        return service.update(id, dto);
+        return service.merge(id, dto);
     }
 
     @DELETE

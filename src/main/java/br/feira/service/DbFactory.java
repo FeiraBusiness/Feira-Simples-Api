@@ -1,6 +1,6 @@
 package br.feira.service;
 
-import br.feira.domain.enums.EnumDBImpl;
+import br.feira.domain.entities.enums.EnumDBImpl;
 import br.feira.domain.repositories.IUserRepository;
 import io.quarkus.arc.All;
 import jakarta.enterprise.context.ApplicationScoped;

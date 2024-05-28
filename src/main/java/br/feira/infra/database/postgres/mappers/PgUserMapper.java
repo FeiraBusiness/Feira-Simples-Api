@@ -1,6 +1,6 @@
 package br.feira.infra.database.postgres.mappers;
 
-import br.feira.domain.entities.UserBO;
+import br.feira.domain.entities.bo.UserBO;
 import br.feira.infra.database.postgres.model.PgAddress;
 import br.feira.infra.database.postgres.model.PgUser;
 

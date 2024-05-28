@@ -1,11 +1,9 @@
 package br.feira.domain.usecases.user;
 
-import br.feira.domain.dtos.UserDTO;
-import br.feira.domain.entities.UserBO;
-import br.feira.domain.mappers.UserMapper;
-import br.feira.domain.repositories.IUserRepository;
-
 import java.util.UUID;
+
+import br.feira.domain.entities.dtos.UserDTO;
+import br.feira.domain.repositories.IUserRepository;
 
 public class DeleteUser {
 
@@ -15,10 +13,8 @@ public class DeleteUser {
         this.repository = repository;
     }
 
-    public UserDTO execute(UserDTO dto) {
-        UserBO bo = repository.delete(dto.getId().transform(UUID::fromString));
-
-        return UserMapper.toDTO(bo);
+    public void execute(UserDTO dto) {
+        repository.delete(dto.getId().transform(UUID::fromString));
     }
 
 }

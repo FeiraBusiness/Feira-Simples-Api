@@ -3,7 +3,7 @@ package br.feira.infra.database.postgres.mappers;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.feira.domain.entities.OrderBO;
+import br.feira.domain.entities.bo.OrderBO;
 import br.feira.infra.database.postgres.model.PgOrder;
 import br.feira.infra.database.postgres.model.PgOrderItem;
 

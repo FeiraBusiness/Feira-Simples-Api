@@ -1,11 +1,11 @@
 package br.feira.domain.usecases.product;
 
-import br.feira.domain.dtos.ProductDTO;
-import br.feira.domain.entities.ProductBO;
-import br.feira.domain.mappers.ProductMapper;
-import br.feira.domain.repositories.IProductRepository;
-
 import java.util.UUID;
+
+import br.feira.domain.entities.bo.ProductBO;
+import br.feira.domain.entities.dtos.ProductDTO;
+import br.feira.domain.entities.mappers.ProductMapper;
+import br.feira.domain.repositories.IProductRepository;
 
 public class UpdateProduct {
 
@@ -16,9 +16,13 @@ public class UpdateProduct {
     }
 
     public ProductDTO execute(UUID id, ProductDTO dto) {
-        ProductBO bo = ProductMapper.toBO(dto);
+        ProductBO bo = repository.findById(id);
 
-        bo = repository.update(id, bo);
+        if (bo == null) {
+            throw new RuntimeException("Opa! Registro não encontrado");
+        }
+
+        bo = repository.merge(bo);
 
         return ProductMapper.toDTO(bo);
     }

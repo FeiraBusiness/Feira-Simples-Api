@@ -38,17 +38,11 @@ public class PgProduct extends PanacheEntityBase {
     @Column(name = "CATEGORY")
     private String category;
 
-    @Column(name = "STOCK_BALANCE")
-    private int stockBalance;
-
     @Column(name = "IMAGE_URL")
     private String imageUrl;
 
     @Column(name = "WEIGHT")
     private double weight;
-
-    @Column(name = "DISCOUNT")
-    private BigDecimal discount;
 
     @Column(name = "RATING")
     private double rating;
@@ -118,14 +112,6 @@ public class PgProduct extends PanacheEntityBase {
         this.category = category;
     }
 
-    public int getStockBalance() {
-        return stockBalance;
-    }
-
-    public void setStockBalance(int stockBalance) {
-        this.stockBalance = stockBalance;
-    }
-
     public String getImageUrl() {
         return imageUrl;
     }
@@ -140,14 +126,6 @@ public class PgProduct extends PanacheEntityBase {
 
     public void setWeight(double weight) {
         this.weight = weight;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
     }
 
     public double getRating() {

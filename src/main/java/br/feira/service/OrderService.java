@@ -3,9 +3,9 @@ package br.feira.service;
 import java.util.List;
 import java.util.UUID;
 
-import br.feira.domain.dtos.OrderDTO;
-import br.feira.domain.entities.OrderBO;
-import br.feira.domain.mappers.OrderMapper;
+import br.feira.domain.entities.bo.OrderBO;
+import br.feira.domain.entities.dtos.OrderDTO;
+import br.feira.domain.entities.mappers.OrderMapper;
 import br.feira.domain.usecases.order.CreateOrder;
 import br.feira.domain.usecases.order.DeleteOrder;
 import br.feira.domain.usecases.order.FindOrderBy;
@@ -40,7 +40,7 @@ public class OrderService extends AbstractService {
     }
 
     @Transactional
-    public OrderDTO update(UUID id, OrderDTO dto) {
+    public OrderDTO merge(UUID id, OrderDTO dto) {
         var update = new UpdateOrder(repository);
 
         return update.execute(id, dto);

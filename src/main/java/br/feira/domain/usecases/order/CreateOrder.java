@@ -1,8 +1,8 @@
 package br.feira.domain.usecases.order;
 
-import br.feira.domain.dtos.OrderDTO;
-import br.feira.domain.entities.OrderBO;
-import br.feira.domain.mappers.OrderMapper;
+import br.feira.domain.entities.bo.OrderBO;
+import br.feira.domain.entities.dtos.OrderDTO;
+import br.feira.domain.entities.mappers.OrderMapper;
 import br.feira.domain.repositories.IOrderRepository;
 
 public class CreateOrder {

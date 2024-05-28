@@ -2,8 +2,8 @@ package br.feira.domain.usecases.order;
 
 import java.util.UUID;
 
-import br.feira.domain.dtos.OrderDTO;
-import br.feira.domain.mappers.OrderMapper;
+import br.feira.domain.entities.dtos.OrderDTO;
+import br.feira.domain.entities.mappers.OrderMapper;
 import br.feira.domain.repositories.IOrderRepository;
 
 public class FindOrderBy {
@@ -15,13 +15,13 @@ public class FindOrderBy {
     }
 
     public OrderDTO execute(UUID id) {
-        var order = repository.findById(id);
+        var entity = repository.findById(id);
 
-        if (order == null) {
-            //throw
+        if (entity == null) {
+            // throw
         }
 
-        return OrderMapper.toDTO(order);
+        return OrderMapper.toDTO(entity);
     }
 
 }

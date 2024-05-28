@@ -1,6 +1,6 @@
 package br.feira.infra.database.postgres.mappers;
 
-import br.feira.domain.entities.OrderItemBO;
+import br.feira.domain.entities.bo.OrderItemBO;
 import br.feira.infra.database.postgres.model.PgOrderItem;
 
 public class PgOrderItemMapper {

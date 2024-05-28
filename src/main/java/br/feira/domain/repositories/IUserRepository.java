@@ -3,7 +3,7 @@ package br.feira.domain.repositories;
 import java.util.List;
 import java.util.UUID;
 
-import br.feira.domain.entities.UserBO;
+import br.feira.domain.entities.bo.UserBO;
 
 public interface IUserRepository {
 
@@ -15,6 +15,6 @@ public interface IUserRepository {
 
     UserBO merge(UserBO bo);
 
-    UserBO delete(UUID id);
+    void delete(UUID id);
 
 }

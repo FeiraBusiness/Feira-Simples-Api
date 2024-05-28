@@ -1,8 +1,8 @@
 package br.feira.domain.usecases.product;
 
-import br.feira.domain.dtos.ProductDTO;
-import br.feira.domain.entities.ProductBO;
-import br.feira.domain.mappers.ProductMapper;
+import br.feira.domain.entities.bo.ProductBO;
+import br.feira.domain.entities.dtos.ProductDTO;
+import br.feira.domain.entities.mappers.ProductMapper;
 import br.feira.domain.repositories.IProductRepository;
 
 public class CreateProduct {

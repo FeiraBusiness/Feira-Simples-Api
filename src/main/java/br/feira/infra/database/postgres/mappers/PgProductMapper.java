@@ -1,6 +1,6 @@
 package br.feira.infra.database.postgres.mappers;
 
-import br.feira.domain.entities.ProductBO;
+import br.feira.domain.entities.bo.ProductBO;
 import br.feira.infra.database.postgres.model.PgProduct;
 
 public class PgProductMapper {

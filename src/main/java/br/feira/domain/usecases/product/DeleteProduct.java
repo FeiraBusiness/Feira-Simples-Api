@@ -1,11 +1,9 @@
 package br.feira.domain.usecases.product;
 
-import br.feira.domain.dtos.ProductDTO;
-import br.feira.domain.entities.ProductBO;
-import br.feira.domain.mappers.ProductMapper;
-import br.feira.domain.repositories.IProductRepository;
-
 import java.util.UUID;
+
+import br.feira.domain.entities.dtos.ProductDTO;
+import br.feira.domain.repositories.IProductRepository;
 
 public class DeleteProduct {
 
@@ -15,10 +13,8 @@ public class DeleteProduct {
         this.repository = repository;
     }
 
-    public ProductDTO execute(ProductDTO dto) {
-        ProductBO bo = repository.delete(dto.getId().transform(UUID::fromString));
-
-        return ProductMapper.toDTO(bo);
+    public void execute(ProductDTO dto) {
+        repository.delete(dto.getId().transform(UUID::fromString));
     }
 
 }

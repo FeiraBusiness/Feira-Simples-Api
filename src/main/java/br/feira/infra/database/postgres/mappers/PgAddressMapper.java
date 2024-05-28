@@ -1,6 +1,6 @@
 package br.feira.infra.database.postgres.mappers;
 
-import br.feira.domain.entities.AddressBO;
+import br.feira.domain.entities.bo.AddressBO;
 import br.feira.infra.database.postgres.model.PgAddress;
 
 public class PgAddressMapper {

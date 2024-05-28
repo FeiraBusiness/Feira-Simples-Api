@@ -3,7 +3,7 @@ package br.feira.domain.repositories;
 import java.util.List;
 import java.util.UUID;
 
-import br.feira.domain.entities.OrderBO;
+import br.feira.domain.entities.bo.OrderBO;
 
 public interface IOrderRepository {
 
@@ -13,7 +13,7 @@ public interface IOrderRepository {
 
     OrderBO findById(UUID id);
 
-    OrderBO update(UUID id, OrderBO bo);
+    OrderBO merge(OrderBO bo);
 
     void delete(UUID id);
 

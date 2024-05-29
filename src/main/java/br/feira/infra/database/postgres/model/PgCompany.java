@@ -15,6 +15,12 @@ public class PgCompany {
     @Id
     private UUID id;
 
+    @Column(name = "NAME")
+    private String name;
+
+    @Column(name = "IS_ACTIVE")
+    private Boolean isActive;
+
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<PgBranch> branches;
 
@@ -34,6 +40,22 @@ public class PgCompany {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean active) {
+        isActive = active;
     }
 
     public List<PgBranch> getBranches() {

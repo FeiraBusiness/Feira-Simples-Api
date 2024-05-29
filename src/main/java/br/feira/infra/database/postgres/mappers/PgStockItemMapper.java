@@ -3,7 +3,7 @@ package br.feira.infra.database.postgres.mappers;
 import br.feira.domain.entities.bo.AddressBO;
 import br.feira.infra.database.postgres.model.PgAddress;
 
-public class PgAddressMapper {
+public class PgStockItemMapper {
 
     public static PgAddress toEntity(AddressBO bo) {
         var panache = new PgAddress();
@@ -25,7 +25,7 @@ public class PgAddressMapper {
     }
 
     public static AddressBO toDomain(PgAddress entity) {
-        var bo = new AddressBO(
+        var addressBO = new AddressBO(
                 entity.getId().toString(),
                 entity.getZipCode(),
                 entity.getStreet(),
@@ -38,7 +38,7 @@ public class PgAddressMapper {
                 entity.getcreatedAt(),
                 entity.getUpdatedAt());
 
-        return bo;
+        return addressBO;
     }
 
 }

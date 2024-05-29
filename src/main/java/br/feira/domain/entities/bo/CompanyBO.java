@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class CompanyBO {
+
     private UUID id;
     private String name;
     private Boolean isActive;
@@ -29,7 +30,7 @@ public class CompanyBO {
         return name;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 

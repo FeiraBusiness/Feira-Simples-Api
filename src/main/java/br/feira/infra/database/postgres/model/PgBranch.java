@@ -17,8 +17,11 @@ public class PgBranch {
     @ManyToOne(fetch = FetchType.LAZY)
     private PgCompany company;
 
-    @Column
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "IS_ACTIVE")
+    private Boolean isActive;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
@@ -54,15 +57,23 @@ public class PgBranch {
         this.name = name;
     }
 
-    public LocalDateTime getcreatedAt() {
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean active) {
+        isActive = active;
+    }
+
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setcreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
+    public LocalDateTime getUpdateAt() {
         return updateAt;
     }
 

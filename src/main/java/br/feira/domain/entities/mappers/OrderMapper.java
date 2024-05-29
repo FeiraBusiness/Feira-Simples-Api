@@ -23,7 +23,7 @@ public class OrderMapper {
         dto.setUser(UserMapper.toDTO(bo.getUser()));
         dto.setItems(items);
         dto.setEnumOrderStatus(bo.getStatus());
-        dto.setCreatedAt(bo.getCreatedAt());
+        dto.setcreatedAt(bo.getcreatedAt());
         dto.setUpdatedAt(bo.getUpdatedAt());
 
         return dto;
@@ -32,7 +32,7 @@ public class OrderMapper {
     public static OrderBO toBO(OrderDTO dto) {
         return new OrderBO(dto.getId(), UserMapper.toBO(dto.getUser()),
                 dto.getItems().stream().map(OrderItemMapper::toBO).collect(Collectors.toList()),
-                dto.getEnumOrderStatus(), dto.getCreatedAt(), dto.getUpdatedAt());
+                dto.getEnumOrderStatus(), dto.getcreatedAt(), dto.getUpdatedAt());
     }
 
 }

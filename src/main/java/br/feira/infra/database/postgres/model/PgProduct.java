@@ -17,7 +17,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "FF_PRODUCT")
+@Table(name = "FS_PRODUCT")
 public class PgProduct extends PanacheEntityBase {
 
     @Id
@@ -152,11 +152,11 @@ public class PgProduct extends PanacheEntityBase {
         this.expirationDate = expirationDate;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setcreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 

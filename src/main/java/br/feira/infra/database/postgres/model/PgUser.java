@@ -21,7 +21,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "FF_USER")
+@Table(name = "FS_USER")
 public class PgUser extends PanacheEntityBase {
 
     @Id
@@ -145,15 +145,15 @@ public class PgUser extends PanacheEntityBase {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setcreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getUpdateAt() {
+    public LocalDateTime getUpdatedAt() {
         return updateAt;
     }
 

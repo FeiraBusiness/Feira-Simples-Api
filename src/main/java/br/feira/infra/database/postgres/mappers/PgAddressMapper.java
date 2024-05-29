@@ -17,7 +17,7 @@ public class PgAddressMapper {
         panache.setCity(bo.getCity());
         panache.setState(bo.getState());
         panache.setCountry(bo.getCountry());
-        panache.setCreatedAt(bo.getCreatedAt());
+        panache.setcreatedAt(bo.getcreatedAt());
         panache.setUpdatedAt(bo.getUpdatedAt());
 
         return panache;
@@ -35,7 +35,7 @@ public class PgAddressMapper {
                 entity.getCity(),
                 entity.getState(),
                 entity.getCountry(),
-                entity.getCreatedAt(),
+                entity.getcreatedAt(),
                 entity.getUpdatedAt());
 
         return addressBO;

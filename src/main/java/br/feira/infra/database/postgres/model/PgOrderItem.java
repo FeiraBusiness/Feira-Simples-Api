@@ -20,7 +20,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "FF_ORDERITEM")
+@Table(name = "FS_ORDERITEM")
 public class PgOrderItem extends PanacheEntityBase {
 
     @Id
@@ -88,7 +88,7 @@ public class PgOrderItem extends PanacheEntityBase {
         this.price = price;
     }
 
-    public LocalDateTime getCreateAt() {
+    public LocalDateTime getCreatedAt() {
         return createAt;
     }
 
@@ -96,7 +96,7 @@ public class PgOrderItem extends PanacheEntityBase {
         this.createAt = createAt;
     }
 
-    public LocalDateTime getUpdateAt() {
+    public LocalDateTime getUpdatedAt() {
         return updateAt;
     }
 

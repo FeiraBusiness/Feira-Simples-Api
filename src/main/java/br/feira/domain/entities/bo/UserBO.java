@@ -91,11 +91,11 @@ public class UserBO {
         return dateOfBirth;
     }
 
-    public LocalDateTime getCreateAt() {
+    public LocalDateTime getCreatedAt() {
         return createAt;
     }
 
-    public LocalDateTime getUpdateAt() {
+    public LocalDateTime getUpdatedAt() {
         return updateAt;
     }
 }

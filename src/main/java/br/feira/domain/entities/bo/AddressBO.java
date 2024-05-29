@@ -67,7 +67,7 @@ public class AddressBO {
         return zipCode;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 

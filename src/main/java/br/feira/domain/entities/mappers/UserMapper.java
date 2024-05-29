@@ -20,8 +20,8 @@ public class UserMapper {
         dto.setIsActive(bo.getIsActive());
         dto.setAddress(bo.getAddress().stream().map(AddressMapper::toDTO).collect(Collectors.toList()));
         dto.setDateOfBirth(bo.getDateOfBirth());
-        dto.setCreateAt(bo.getCreateAt());
-        dto.setUpdateAt(bo.getUpdateAt());
+        dto.setCreateAt(bo.getCreatedAt());
+        dto.setUpdateAt(bo.getUpdatedAt());
 
         return dto;
     }
@@ -30,6 +30,6 @@ public class UserMapper {
         return new UserBO(dto.getId(), dto.getName(), dto.getEmail(), dto.getCpfCnpj(), dto.getGender(),
                 dto.getPassword(), dto.getPhoneNumber(), dto.getIsActive(),
                 dto.getAddress().stream().map(AddressMapper::toBO).collect(Collectors.toList()), dto.getDateOfBirth(),
-                dto.getCreateAt(), dto.getUpdateAt());
+                dto.getCreatedAt(), dto.getUpdatedAt());
     }
 }

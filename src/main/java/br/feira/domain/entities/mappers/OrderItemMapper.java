@@ -18,7 +18,7 @@ public class OrderItemMapper {
 
     public static OrderItemBO toBO(OrderItemDTO dto) {
         return new OrderItemBO(dto.getId(), dto.getQuantity(), dto.getUnitaryValue(),
-                ProductMapper.toBO(dto.getProduct()), dto.getCreateAt(), dto.getUpdateAt());
+                ProductMapper.toBO(dto.getProduct()), dto.getCreatedAt(), dto.getUpdatedAt());
     }
     
 }

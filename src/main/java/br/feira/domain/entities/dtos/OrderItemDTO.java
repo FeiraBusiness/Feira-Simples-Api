@@ -44,7 +44,7 @@ public class OrderItemDTO {
         this.product = product;
     }
 
-    public LocalDateTime getCreateAt() {
+    public LocalDateTime getCreatedAt() {
         return createAt;
     }
 
@@ -52,7 +52,7 @@ public class OrderItemDTO {
         this.createAt = createAt;
     }
 
-    public LocalDateTime getUpdateAt() {
+    public LocalDateTime getUpdatedAt() {
         return updateAt;
     }
 

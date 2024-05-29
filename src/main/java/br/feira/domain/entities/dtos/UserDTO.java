@@ -100,7 +100,7 @@ public class UserDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public LocalDateTime getCreateAt() {
+    public LocalDateTime getCreatedAt() {
         return createAt;
     }
 
@@ -108,7 +108,7 @@ public class UserDTO {
         this.createAt = createAt;
     }
 
-    public LocalDateTime getUpdateAt() {
+    public LocalDateTime getUpdatedAt() {
         return updateAt;
     }
 

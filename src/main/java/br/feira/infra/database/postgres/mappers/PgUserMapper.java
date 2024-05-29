@@ -24,8 +24,8 @@ public class PgUserMapper {
         addresses.forEach(address -> address.setUser(panache));
         panache.setAddress(addresses);
         panache.setDateOfBirth(bo.getDateOfBirth());
-        panache.setCreatedAt(bo.getCreateAt());
-        panache.setUpdateAt(bo.getUpdateAt());
+        panache.setcreatedAt(bo.getCreatedAt());
+        panache.setUpdateAt(bo.getUpdatedAt());
 
         return panache;
     }
@@ -42,8 +42,8 @@ public class PgUserMapper {
                 entity.getIsActive(),
                 entity.getAddress().stream().map(PgAddressMapper::toDomain).collect(Collectors.toList()),
                 entity.getDateOfBirth(),
-                entity.getCreatedAt(),
-                entity.getUpdateAt());
+                entity.getcreatedAt(),
+                entity.getUpdatedAt());
 
         return bo;
     }

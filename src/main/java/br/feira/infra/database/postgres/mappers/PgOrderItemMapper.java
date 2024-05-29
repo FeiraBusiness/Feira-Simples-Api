@@ -12,8 +12,8 @@ public class PgOrderItemMapper {
         panache.setQuantity(bo.getQuantity());
         panache.setPrice(bo.getPrice());
         panache.setProduct(PgProductMapper.toEntity(bo.getProduct()));
-        panache.setCreateAt(bo.getCreateAt());
-        panache.setUpdateAt(bo.getUpdateAt());
+        panache.setCreateAt(bo.getCreatedAt());
+        panache.setUpdateAt(bo.getUpdatedAt());
 
         return panache;
     }
@@ -24,8 +24,8 @@ public class PgOrderItemMapper {
                 entity.getQuantity(),
                 entity.getPrice(),
                 PgProductMapper.toDomain(entity.getProduct()),
-                entity.getCreateAt(),
-                entity.getUpdateAt());
+                entity.getCreatedAt(),
+                entity.getUpdatedAt());
 
         return bo;
     }

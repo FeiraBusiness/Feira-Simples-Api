@@ -52,11 +52,11 @@ public class OrderDTO {
         this.status = enumOrderStatus;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setcreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 

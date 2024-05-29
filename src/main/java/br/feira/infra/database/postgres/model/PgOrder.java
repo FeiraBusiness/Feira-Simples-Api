@@ -23,11 +23,14 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "FF_ORDEM")
+@Table(name = "FS_ORDEM")
 public class PgOrder extends PanacheEntityBase {
 
     @Id
     private UUID id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private PgSeller seller;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private PgUser user;
@@ -92,11 +95,11 @@ public class PgOrder extends PanacheEntityBase {
         this.status = status;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setcreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 

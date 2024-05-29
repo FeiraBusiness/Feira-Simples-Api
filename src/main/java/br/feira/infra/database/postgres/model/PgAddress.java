@@ -17,7 +17,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "FF_ADDRESS")
+@Table(name = "FS_ADDRESS")
 public class PgAddress extends PanacheEntityBase {
 
     @Id
@@ -140,11 +140,11 @@ public class PgAddress extends PanacheEntityBase {
         this.zipCode = zipCode;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setcreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 

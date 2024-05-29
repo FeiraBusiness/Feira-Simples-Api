@@ -47,7 +47,7 @@ public class OrderBO {
         return status;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 

@@ -19,7 +19,7 @@ public class PgProductMapper {
         panache.setRating(bo.getRating());
         panache.setIsActive(bo.getIsActive());
         panache.setExpirationDate(bo.getExpirationDate());
-        panache.setCreatedAt(bo.getCreatedAt());
+        panache.setcreatedAt(bo.getcreatedAt());
         panache.setUpdatedAt(bo.getUpdatedAt());
 
         return panache;
@@ -38,7 +38,7 @@ public class PgProductMapper {
                 entity.getRating(),
                 entity.getIsActive(),
                 entity.getExpirationDate(),
-                entity.getCreatedAt(),
+                entity.getcreatedAt(),
                 entity.getUpdatedAt());
 
         return bo;

@@ -82,7 +82,7 @@ public class ProductBO {
         return expirationDate;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDateTime getcreatedAt() {
         return createdAt;
     }
 

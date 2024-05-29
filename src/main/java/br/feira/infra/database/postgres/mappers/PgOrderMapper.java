@@ -21,7 +21,7 @@ public class PgOrderMapper {
         panache.setUser(PgUserMapper.toEntity(bo.getUser()));
         panache.setItems(items);
         panache.setStatus(bo.getStatus());
-        panache.setCreatedAt(bo.getCreatedAt());
+        panache.setcreatedAt(bo.getcreatedAt());
         panache.setUpdatedAt(bo.getUpdatedAt());
 
         return panache;
@@ -33,7 +33,7 @@ public class PgOrderMapper {
                 PgUserMapper.toDomain(entity.getUser()),
                 entity.getItems().stream().map(PgOrderItemMapper::toDomain).collect(Collectors.toList()),
                 entity.getStatus(),
-                entity.getCreatedAt(),
+                entity.getcreatedAt(),
                 entity.getUpdatedAt());
 
         return bo;

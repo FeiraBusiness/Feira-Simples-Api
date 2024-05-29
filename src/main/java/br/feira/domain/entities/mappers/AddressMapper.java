@@ -17,7 +17,7 @@ public class AddressMapper {
         dto.setState(bo.getState());
         dto.setCountry(bo.getCountry());
         dto.setZipCode(bo.getZipCode());
-        dto.setCreatedAt(bo.getCreatedAt());
+        dto.setcreatedAt(bo.getcreatedAt());
         dto.setUpdatedAt(bo.getUpdatedAt());
 
         return dto;
@@ -34,7 +34,7 @@ public class AddressMapper {
                 dto.getState(),
                 dto.getCountry(),
                 dto.getZipCode(),
-                dto.getCreatedAt(),
+                dto.getcreatedAt(),
                 dto.getUpdatedAt());
     }
 

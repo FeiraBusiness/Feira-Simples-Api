@@ -19,7 +19,7 @@ public class ProductMapper {
         dto.setRating(bo.getRating());
         dto.setIsActive(bo.getIsActive());
         dto.setExpirationDate(bo.getExpirationDate());
-        dto.setCreatedAt(bo.getCreatedAt());
+        dto.setcreatedAt(bo.getcreatedAt());
         dto.setUpdatedAt(bo.getUpdatedAt());
 
         return dto;
@@ -38,7 +38,7 @@ public class ProductMapper {
                 dto.getRating(),
                 dto.getIsActive(),
                 dto.getExpirationDate(),
-                dto.getCreatedAt(),
+                dto.getcreatedAt(),
                 dto.getUpdatedAt());
     }
 

@@ -1,8 +1,11 @@
 package br.feira.domain.usecases.product;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import br.feira.domain.entities.bo.ProductBO;
 import br.feira.domain.entities.dtos.ProductDTO;
+import br.feira.domain.entities.mappers.ProductMapper;
 import br.feira.domain.repositories.IProductRepository;
 
 public class FindProductAll {
@@ -14,7 +17,11 @@ public class FindProductAll {
     }
 
     public List<ProductDTO> execute() {
-        return null;
+        List<ProductBO> list = repository.listAll();
+
+        return list.stream()
+                .map(ProductMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
 }

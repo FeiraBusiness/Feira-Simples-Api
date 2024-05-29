@@ -8,6 +8,7 @@ import br.feira.domain.entities.dtos.OrderDTO;
 import br.feira.domain.entities.mappers.OrderMapper;
 import br.feira.domain.usecases.order.CreateOrder;
 import br.feira.domain.usecases.order.DeleteOrder;
+import br.feira.domain.usecases.order.FindOrderAll;
 import br.feira.domain.usecases.order.FindOrderBy;
 import br.feira.domain.usecases.order.UpdateOrder;
 import br.feira.infra.database.postgres.repositories.PgOrderRepository;
@@ -29,8 +30,9 @@ public class OrderService extends AbstractService {
     }
 
     public List<OrderDTO> listAll() {
-        // return repository.listAll();
-        return null;
+        var list = new FindOrderAll(repository);
+
+        return list.execute();
     }
 
     public OrderDTO findById(UUID id) {

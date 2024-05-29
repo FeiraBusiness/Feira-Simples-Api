@@ -8,6 +8,7 @@ import br.feira.domain.entities.dtos.UserDTO;
 import br.feira.domain.entities.mappers.UserMapper;
 import br.feira.domain.usecases.user.CreateUser;
 import br.feira.domain.usecases.user.DeleteUser;
+import br.feira.domain.usecases.user.FindUserAll;
 import br.feira.domain.usecases.user.FindUserBy;
 import br.feira.domain.usecases.user.UpdateUser;
 import br.feira.infra.database.postgres.repositories.PgUserRepository;
@@ -29,8 +30,9 @@ public class UserService extends AbstractService {
     }
 
     public List<UserDTO> listAll() {
-        // List<UserDTO> users = new FindUserBy(pgUserRepository);
-        return null;
+        var list = new FindUserAll(repository);
+
+        return list.execute();
 
     }
 
@@ -41,10 +43,10 @@ public class UserService extends AbstractService {
     }
 
     @Transactional
-    public UserDTO merge(UUID ID, UserDTO dto) {
+    public UserDTO merge(UUID id, UserDTO dto) {
         var update = new UpdateUser(repository);
 
-        return update.execute(ID, dto);
+        return update.execute(id, dto);
     }
 
     @Transactional

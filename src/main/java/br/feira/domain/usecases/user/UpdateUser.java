@@ -22,6 +22,9 @@ public class UpdateUser {
             throw new RuntimeException("Opa! Registro não encontrado");
 
         }
+
+        bo = UserMapper.toBO(dto);
+
         repository.merge(bo);
 
         return UserMapper.toDTO(bo);

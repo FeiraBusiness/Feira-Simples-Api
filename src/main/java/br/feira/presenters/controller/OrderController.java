@@ -1,6 +1,5 @@
 package br.feira.presenters.controller;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
@@ -28,24 +27,32 @@ public class OrderController {
     OrderService service;
 
     @POST
-    public OrderDTO create(OrderDTO dto) {
-        return service.create(dto);
+    public Response create(OrderDTO dto) {
+        var create = service.create(dto);
+
+        return Response.ok(create).build();
     }
 
     @GET
     @Path("/all")
-    public List<OrderDTO> listAll() {
-        return service.listAll();
+    public Response listAll() {
+        var list = service.listAll();
+
+        return Response.ok(list).build();
     }
 
     @GET
-    public OrderDTO findById(@HeaderParam("id") UUID id) {
-        return service.findById(id);
+    public Response findById(@HeaderParam("id") UUID id) {
+        var findBy = service.findById(id);
+
+        return Response.ok(findBy).build();
     }
 
     @PUT
-    public OrderDTO update(@HeaderParam("id") UUID id, @RequestBody OrderDTO dto) {
-        return service.merge(id, dto);
+    public Response update(@HeaderParam("id") UUID id, @RequestBody OrderDTO dto) {
+        var update = service.merge(id, dto);
+
+        return Response.ok(update).build();
     }
 
     @DELETE

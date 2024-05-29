@@ -1,6 +1,5 @@
 package br.feira.presenters.controller;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
@@ -28,24 +27,32 @@ public class ProductController {
     ProductService service;
 
     @POST
-    public ProductDTO create(ProductDTO dto) {
-        return service.create(dto);
+    public Response create(ProductDTO dto) {
+        var create = service.create(dto);
+
+        return Response.ok(create).build();
     }
 
     @GET
     @Path("/all")
-    public List<ProductDTO> listAll() {
-        return service.listAll();
+    public Response listAll() {
+        var list = service.listAll();
+
+        return Response.ok(list).build();
     }
 
     @GET
-    public ProductDTO findById(@HeaderParam("id") UUID id) {
-        return service.findById(id);
+    public Response findById(@HeaderParam("id") UUID id) {
+        var findBy = service.findById(id);
+
+        return Response.ok(findBy).build();
     }
 
     @PUT
-    public ProductDTO merge(@HeaderParam("id") UUID id, @RequestBody ProductDTO dto) {
-        return service.merge(id, dto);
+    public Response merge(@HeaderParam("id") UUID id, @RequestBody ProductDTO dto) {
+        var update = service.merge(id, dto);
+
+        return Response.ok(update).build();
     }
 
     @DELETE

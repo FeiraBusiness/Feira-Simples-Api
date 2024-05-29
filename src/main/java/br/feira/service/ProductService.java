@@ -8,6 +8,7 @@ import br.feira.domain.entities.dtos.ProductDTO;
 import br.feira.domain.entities.mappers.ProductMapper;
 import br.feira.domain.usecases.product.CreateProduct;
 import br.feira.domain.usecases.product.DeleteProduct;
+import br.feira.domain.usecases.product.FindProductAll;
 import br.feira.domain.usecases.product.FindProductBy;
 import br.feira.domain.usecases.product.UpdateProduct;
 import br.feira.infra.database.postgres.repositories.PgProductRepository;
@@ -29,8 +30,9 @@ public class ProductService extends AbstractService {
     }
 
     public List<ProductDTO> listAll() {
-        // return repository.listAll();
-        return null;
+        var list = new FindProductAll(repository);
+
+        return list.execute();
     }
 
     public ProductDTO findById(UUID id) {

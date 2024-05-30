@@ -2,15 +2,17 @@ package br.feira.service;
 
 import br.feira.domain.entities.bo.SellerBO;
 import br.feira.domain.entities.dtos.SellerDTO;
-import br.feira.domain.entities.mappers.UserMapper;
-import br.feira.domain.usecases.user.*;
+import br.feira.domain.entities.mappers.SellerMapper;
+import br.feira.domain.usecases.seller.*;
 import br.feira.infra.database.postgres.repositories.PgSellerRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.UUID;
 
+@ApplicationScoped
 public class SellerService extends AbstractService {
 
     @Inject
@@ -18,38 +20,38 @@ public class SellerService extends AbstractService {
 
     @Transactional
     public SellerDTO create(SellerDTO dto) {
-        var create = new CreateUser(repository);
+        var create = new CreateSeller(repository);
 
         return create.execute(dto);
     }
 
     public List<SellerDTO> listAll() {
-        var list = new FindUserAll(repository);
+        var list = new FindSellerAll(repository);
 
         return list.execute();
 
     }
 
     public SellerDTO findById(UUID id) {
-        var findById = new FindUserBy(repository);
+        var findById = new FindSellerBy(repository);
 
         return findById.execute(id);
     }
 
     @Transactional
     public SellerDTO merge(UUID id, SellerDTO dto) {
-        var update = new UpdateUser(repository);
+        var update = new UpdateSeller(repository);
 
         return update.execute(id, dto);
     }
 
     @Transactional
     public void delete(UUID id) {
-        SellerBO user = repository.findById(id);
+        SellerBO bo = repository.findById(id);
 
-        var dto = UserMapper.toDTO(user);
+        var dto = SellerMapper.toDTO(bo);
 
-        var delete = new DeleteUser(repository);
+        var delete = new DeleteSeller(repository);
 
         delete.execute(dto);
     }

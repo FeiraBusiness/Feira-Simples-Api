@@ -32,7 +32,7 @@ public class PgStockItem extends PanacheEntityBase {
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATED_AT")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public UUID getId() {
         return id;
@@ -48,14 +48,6 @@ public class PgStockItem extends PanacheEntityBase {
 
     public void setProduct(PgProduct product) {
         this.product = product;
-    }
-
-    public PgStock getStock() {
-        return stock;
-    }
-
-    public void setStock(PgStock stock) {
-        this.stock = stock;
     }
 
     public Integer getUnitQuantity() {
@@ -75,10 +67,10 @@ public class PgStockItem extends PanacheEntityBase {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

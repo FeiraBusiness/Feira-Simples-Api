@@ -1,9 +1,9 @@
 package br.feira.domain.entities.mappers;
 
+import java.util.stream.Collectors;
+
 import br.feira.domain.entities.bo.CompanyBO;
 import br.feira.domain.entities.dtos.CompanyDTO;
-
-import java.util.stream.Collectors;
 
 public class CompanyMapper {
 
@@ -12,7 +12,7 @@ public class CompanyMapper {
 
         dto.setId(bo.getId().toString());
         dto.setName(bo.getName());
-        dto.setActive(bo.getActive());
+        dto.setActive(bo.getIsActive());
         dto.setBranchs(bo.getBranchs().stream().map(BranchMapper::toDTO).collect(Collectors.toList()));
         dto.setcreatedAt(bo.getcreatedAt());
         dto.setUpdatedAt(bo.getUpdatedAt());

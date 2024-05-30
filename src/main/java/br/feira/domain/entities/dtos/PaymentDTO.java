@@ -1,7 +1,6 @@
 package br.feira.domain.entities.dtos;
 
-import br.feira.domain.entities.enums.EnumStatusPayment;
-import br.feira.domain.entities.vo.UuidVO;
+import br.feira.domain.entities.enums.EnumTypePayment;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -9,7 +8,7 @@ import java.time.LocalDateTime;
 public class PaymentDTO {
 
     private String id;
-    private EnumStatusPayment staus;
+    private EnumTypePayment paymentType;
     private BigDecimal value;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -22,12 +21,12 @@ public class PaymentDTO {
         this.id = id;
     }
 
-    public EnumStatusPayment getStaus() {
-        return staus;
+    public EnumTypePayment getPaymentType() {
+        return paymentType;
     }
 
-    public void setStaus(EnumStatusPayment staus) {
-        this.staus = staus;
+    public void setPaymentType(EnumTypePayment paymentType) {
+        this.paymentType = paymentType;
     }
 
     public BigDecimal getValue() {

@@ -5,9 +5,10 @@ import java.time.LocalDateTime;
 public class StockItemDTO {
 
     private String id;
+    private ProductDTO product;
     private Integer unitQuantity;
     private LocalDateTime createdAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public String getId() {
         return id;
@@ -15,6 +16,14 @@ public class StockItemDTO {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public ProductDTO getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductDTO product) {
+        this.product = product;
     }
 
     public Integer getUnitQuantity() {
@@ -34,10 +43,10 @@ public class StockItemDTO {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

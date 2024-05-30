@@ -29,7 +29,7 @@ public class PgStock {
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATED_AT")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public UUID getId() {
         return id;
@@ -64,10 +64,10 @@ public class PgStock {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

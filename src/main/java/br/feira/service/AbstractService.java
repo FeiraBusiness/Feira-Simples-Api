@@ -1,7 +1,6 @@
 package br.feira.service;
 
-import br.feira.infra.database.postgres.repositories.PgProductRepository;
-import br.feira.infra.database.postgres.repositories.PgUserRepository;
+import br.feira.infra.database.postgres.repositories.*;
 import jakarta.inject.Inject;
 
 public abstract class AbstractService {
@@ -11,6 +10,21 @@ public abstract class AbstractService {
 
     @Inject
     PgProductRepository pgProductRepository;
+
+    @Inject
+    PgPaymentRepository pgPaymentRepository;
+
+    @Inject
+    PgOrderRepository pgOrderRepository;
+
+    @Inject
+    PgSellerRepository pgSellerRepository;
+
+    @Inject
+    PgCompanyRepository pgCompanyRepository;
+
+    @Inject
+    PgBranchRepository pgBranchRepository;
 
     @Inject
     DbFactory dbFactory;

@@ -10,7 +10,7 @@ public class OrderItemDTO {
     private BigDecimal unitaryValue;
     private ProductDTO product;
     private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public String getId() {
         return id;
@@ -53,10 +53,10 @@ public class OrderItemDTO {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

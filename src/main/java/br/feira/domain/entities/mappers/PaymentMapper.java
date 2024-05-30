@@ -9,9 +9,9 @@ public class PaymentMapper {
         PaymentDTO dto = new PaymentDTO();
 
         dto.setId(bo.getId().toString());
-        dto.setStaus(bo.getStaus());
+        dto.setPaymentType(bo.getPaymentType());
         dto.setValue(bo.getValue());
-        dto.setcreatedAt(bo.getcreatedAt());
+        dto.setcreatedAt(bo.getCreatedAt());
         dto.setUpdatedAt(bo.getUpdatedAt());
 
         return dto;
@@ -20,8 +20,8 @@ public class PaymentMapper {
     public static PaymentBO toBO(PaymentDTO dto) {
         return new PaymentBO(
                 dto.getId(),
-                dto.getStaus(),
                 dto.getValue(),
+                dto.getPaymentType(),
                 dto.getcreatedAt(),
                 dto.getUpdatedAt());
     }

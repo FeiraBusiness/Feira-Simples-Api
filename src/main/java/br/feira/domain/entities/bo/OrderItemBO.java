@@ -11,15 +11,15 @@ public class OrderItemBO {
     private BigDecimal price;
     private ProductBO product;
     private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
-    public OrderItemBO(String id, int quantity, BigDecimal price, ProductBO product, LocalDateTime createAt, LocalDateTime updateAt) {
+    public OrderItemBO(String id, int quantity, BigDecimal price, ProductBO product, LocalDateTime createAt, LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.quantity = quantity;
         this.price = price;
         this.product = product;
         this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.updatedAt = updatedAt;
     }
 
     public UUID getId() {
@@ -43,6 +43,6 @@ public class OrderItemBO {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 }

@@ -11,6 +11,7 @@ public class PgOrderMapper {
 
     public static PgOrder toEntity(OrderBO bo) {
         var panache = new PgOrder();
+
         List<PgOrderItem> items = bo.getItems().stream()
                 .map(PgOrderItemMapper::toEntity)
                 .toList();

@@ -9,9 +9,10 @@ public class StockItemMapper {
         StockItemDTO dto = new StockItemDTO();
 
         dto.setId(bo.getId().toString());
+        dto.setProduct(ProductMapper.toDTO(bo.getProduct()));
         dto.setUnitQuantity(bo.getUnitQuantity());
-        dto.setcreatedAt(bo.getcreatedAt());
-        dto.setUpdateAt(bo.getUpdatedAt());
+        dto.setcreatedAt(bo.getCreatedAt());
+        dto.setupdatedAt(bo.getUpdatedAt());
 
 
         return dto;
@@ -20,6 +21,7 @@ public class StockItemMapper {
     public static StockItemBO toBO(StockItemDTO dto) {
         return new StockItemBO(
                 dto.getId(),
+                ProductMapper.toBO(dto.getProduct()),
                 dto.getUnitQuantity(),
                 dto.getcreatedAt(),
                 dto.getUpdatedAt());

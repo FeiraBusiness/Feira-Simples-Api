@@ -1,35 +1,61 @@
 package br.feira.service;
 
-import br.feira.domain.entities.bo.BranchBO;
-import br.feira.domain.repositories.IBranchRepository;
-
 import java.util.List;
 import java.util.UUID;
 
-public class BranchService implements IBranchRepository {
+import br.feira.domain.entities.bo.BranchBO;
+import br.feira.domain.entities.dtos.BranchDTO;
+import br.feira.domain.entities.mappers.BranchMapper;
+import br.feira.domain.usecases.branch.CreateBranch;
+import br.feira.domain.usecases.branch.DeleteBranch;
+import br.feira.domain.usecases.branch.FindBranchAll;
+import br.feira.domain.usecases.branch.FindBranchBy;
+import br.feira.domain.usecases.branch.UpdateBranch;
+import br.feira.infra.database.postgres.repositories.PgBranchRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
-    @Override
-    public BranchBO create(BranchBO bo) {
-        return null;
+@ApplicationScoped
+public class BranchService extends AbstractService {
+
+    @Inject
+    PgBranchRepository repository;
+
+    @Transactional
+    public BranchDTO create(BranchDTO dto) {
+        var bo = new CreateBranch(repository);
+
+        return bo.execute(dto);
     }
 
-    @Override
-    public List<BranchBO> listAll() {
-        return null;
+    public List<BranchDTO> listAll() {
+        var list = new FindBranchAll(repository);
+
+        return list.execute();
     }
 
-    @Override
-    public BranchBO findById(UUID id) {
-        return null;
+    public BranchDTO findById(UUID id) {
+        var find = new FindBranchBy(repository);
+
+        return find.execute(id);
     }
 
-    @Override
-    public BranchBO merge(BranchBO bo) {
-        return null;
+    @Transactional
+    public BranchDTO merge(UUID id, BranchDTO dto) {
+        var update = new UpdateBranch(repository);
+
+        return update.execute(id, dto);
     }
 
-    @Override
+    @Transactional
     public void delete(UUID id) {
+        BranchBO bo = repository.findById(id);
 
+        var dto = BranchMapper.toDTO(bo);
+
+        var delete = new DeleteBranch(repository);
+
+        delete.execute(dto);
     }
 }

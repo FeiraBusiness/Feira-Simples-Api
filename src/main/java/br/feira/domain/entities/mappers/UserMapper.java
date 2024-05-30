@@ -21,7 +21,7 @@ public class UserMapper {
         dto.setAddress(bo.getAddress().stream().map(AddressMapper::toDTO).collect(Collectors.toList()));
         dto.setDateOfBirth(bo.getDateOfBirth());
         dto.setCreateAt(bo.getCreatedAt());
-        dto.setUpdateAt(bo.getUpdatedAt());
+        dto.setupdatedAt(bo.getUpdatedAt());
 
         return dto;
     }

@@ -9,7 +9,7 @@ public class StockDTO {
     private List<OrderItemDTO> items;
     private Integer totalAmount;
     private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public String getId() {
         return id;
@@ -44,10 +44,10 @@ public class StockDTO {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

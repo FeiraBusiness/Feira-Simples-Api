@@ -18,7 +18,7 @@ public class UserDTO {
     private List<AddressDTO> address;
     private LocalDateTime dateOfBirth;
     private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public String getId() {
         return id;
@@ -109,10 +109,10 @@ public class UserDTO {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

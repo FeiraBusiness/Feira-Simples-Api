@@ -19,12 +19,12 @@ public class UserBO {
     private List<AddressBO> address;
     private LocalDateTime dateOfBirth;
     private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public UserBO(String id, String name, String email, String cpfCnpj, EnumGender gender, String password,
             String phoneNumber, Boolean isActive, List<AddressBO> address, LocalDateTime dateOfBirth,
             LocalDateTime createAt,
-            LocalDateTime updateAt) {
+            LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.name = name;
         this.email = email;
@@ -36,7 +36,7 @@ public class UserBO {
         this.address = address;
         this.dateOfBirth = dateOfBirth;
         this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.updatedAt = updatedAt;
     }
 
     public void update(String email) {
@@ -96,6 +96,6 @@ public class UserBO {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 }

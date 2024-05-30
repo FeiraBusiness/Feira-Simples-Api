@@ -21,7 +21,6 @@ public class PgAddressMapper {
         panache.setUpdatedAt(bo.getUpdatedAt());
 
         return panache;
-
     }
 
     public static AddressBO toDomain(PgAddress entity) {

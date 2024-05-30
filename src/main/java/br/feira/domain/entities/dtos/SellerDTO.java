@@ -1,10 +1,9 @@
 package br.feira.domain.entities.dtos;
 
-import br.feira.domain.entities.bo.AddressBO;
-import br.feira.domain.entities.enums.EnumGender;
-
 import java.time.LocalDateTime;
 import java.util.List;
+
+import br.feira.domain.entities.enums.EnumGender;
 
 public class SellerDTO {
 

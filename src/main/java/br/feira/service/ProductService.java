@@ -50,9 +50,9 @@ public class ProductService extends AbstractService {
 
     @Transactional
     public void delete(UUID id) {
-        ProductBO product = repository.findById(id);
+        ProductBO bo = repository.findById(id);
 
-        var dto = ProductMapper.toDTO(product);
+        var dto = ProductMapper.toDTO(bo);
 
         var delete = new DeleteProduct(repository);
 

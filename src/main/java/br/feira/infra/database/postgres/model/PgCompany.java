@@ -1,5 +1,6 @@
 package br.feira.infra.database.postgres.model;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -10,7 +11,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "FS_COMPANY")
-public class PgCompany {
+public class PgCompany extends PanacheEntityBase {
 
     @Id
     private UUID id;
@@ -32,7 +33,7 @@ public class PgCompany {
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATED_AT")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public UUID getId() {
         return id;
@@ -75,10 +76,10 @@ public class PgCompany {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

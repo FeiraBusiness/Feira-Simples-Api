@@ -1,17 +1,17 @@
 package br.feira.infra.database.postgres.model;
 
 import br.feira.domain.entities.enums.EnumGender;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "FS_SELLER")
-public class PgSeller {
+public class PgSeller extends PanacheEntityBase {
 
     @Id
     private UUID id;
@@ -49,7 +49,7 @@ public class PgSeller {
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATED_AT")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     public UUID getId() {
         return id;
@@ -107,11 +107,11 @@ public class PgSeller {
         this.phoneNumber = phoneNumber;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 
@@ -132,10 +132,10 @@ public class PgSeller {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 
-    public void setUpdateAt(LocalDateTime updateAt) {
-        this.updateAt = updateAt;
+    public void setupdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

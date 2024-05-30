@@ -25,7 +25,7 @@ public class PgUserMapper {
         panache.setAddress(addresses);
         panache.setDateOfBirth(bo.getDateOfBirth());
         panache.setcreatedAt(bo.getCreatedAt());
-        panache.setUpdateAt(bo.getUpdatedAt());
+        panache.setupdatedAt(bo.getUpdatedAt());
 
         return panache;
     }

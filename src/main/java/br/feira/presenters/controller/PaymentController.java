@@ -1,9 +1,7 @@
 package br.feira.presenters.controller;
 
 import br.feira.domain.entities.dtos.PaymentDTO;
-import br.feira.domain.entities.dtos.UserDTO;
 import br.feira.service.PaymentService;
-import br.feira.service.SellerService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

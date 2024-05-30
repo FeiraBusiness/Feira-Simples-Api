@@ -12,10 +12,9 @@ public class PgBranchMapper {
         panache.setName(bo.getName());
         panache.setIsActive(bo.getActive());
         panache.setCreatedAt(bo.getUpdatedAt());
-        panache.setUpdateAt(bo.getUpdatedAt());
+        panache.setupdatedAt(bo.getUpdatedAt());
 
         return panache;
-
     }
 
     public static BranchBO toDomain(PgBranch entity) {
@@ -24,7 +23,7 @@ public class PgBranchMapper {
                 entity.getName(),
                 entity.getIsActive(),
                 entity.getCreatedAt(),
-                entity.getUpdateAt());
+                entity.getupdatedAt());
 
         return bo;
     }

@@ -10,14 +10,14 @@ public class StockBO {
     private List<OrderItemBO> items;
     private Integer totalAmount;
     private LocalDateTime createAt;
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
-    public StockBO(String id, List<OrderItemBO> items, Integer totalAmount, LocalDateTime createAt, LocalDateTime updateAt) {
+    public StockBO(String id, List<OrderItemBO> items, Integer totalAmount, LocalDateTime createAt, LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.items = items;
         this.totalAmount = totalAmount;
         this.createAt = createAt;
-        this.updateAt = updateAt;
+        this.updatedAt = updatedAt;
     }
 
     public UUID getId() {
@@ -37,6 +37,6 @@ public class StockBO {
     }
 
     public LocalDateTime getUpdatedAt() {
-        return updateAt;
+        return updatedAt;
     }
 }

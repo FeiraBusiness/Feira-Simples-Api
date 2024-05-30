@@ -13,7 +13,7 @@ public class PgOrderItemMapper {
         panache.setPrice(bo.getPrice());
         panache.setProduct(PgProductMapper.toEntity(bo.getProduct()));
         panache.setCreateAt(bo.getCreatedAt());
-        panache.setUpdateAt(bo.getUpdatedAt());
+        panache.setupdatedAt(bo.getUpdatedAt());
 
         return panache;
     }

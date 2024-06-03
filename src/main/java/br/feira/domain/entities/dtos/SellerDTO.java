@@ -1,7 +1,6 @@
 package br.feira.domain.entities.dtos;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import br.feira.domain.entities.enums.EnumGender;
 
@@ -15,7 +14,6 @@ public class SellerDTO {
     private String password;
     private String phoneNumber;
     private Boolean isActive;
-    private List<AddressDTO> address;
     private LocalDateTime dateOfBirth;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -82,14 +80,6 @@ public class SellerDTO {
 
     public void setIsActive(Boolean active) {
         isActive = active;
-    }
-
-    public List<AddressDTO> getAddress() {
-        return address;
-    }
-
-    public void setAddress(List<AddressDTO> address) {
-        this.address = address;
     }
 
     public LocalDateTime getDateOfBirth() {

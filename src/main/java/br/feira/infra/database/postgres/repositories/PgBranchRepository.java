@@ -1,16 +1,15 @@
 package br.feira.infra.database.postgres.repositories;
 
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
 import br.feira.domain.entities.bo.BranchBO;
 import br.feira.domain.repositories.IBranchRepository;
 import br.feira.infra.database.postgres.mappers.PgBranchMapper;
 import br.feira.infra.database.postgres.model.PgBranch;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.persistence.EntityManager;
 import jakarta.ws.rs.NotFoundException;
-
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class PgBranchRepository implements IBranchRepository {

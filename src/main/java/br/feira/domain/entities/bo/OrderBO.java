@@ -1,18 +1,17 @@
 package br.feira.domain.entities.bo;
 
-import br.feira.domain.entities.dtos.SellerDTO;
-import br.feira.domain.entities.enums.EnumOrderStatus;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import br.feira.domain.entities.enums.EnumOrderStatus;
+
 public class OrderBO {
 
     private UUID id;
+    private SellerBO seller;
     private CustomerBO customer;
-    private SellerDTO seller;
     private BigDecimal discount;
     private BigDecimal increase;
     private BigDecimal netValue;
@@ -21,10 +20,15 @@ public class OrderBO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public OrderBO(String id, CustomerBO customer, List<OrderItemBO> items, EnumOrderStatus status,
-                   LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public OrderBO(String id, CustomerBO customer, SellerBO seller, BigDecimal discount, BigDecimal increase,
+            BigDecimal netValue, List<OrderItemBO> items, EnumOrderStatus status, LocalDateTime createdAt,
+            LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.customer = customer;
+        this.seller = seller;
+        this.discount = discount;
+        this.increase = increase;
+        this.netValue = netValue;
         this.items = items;
         this.status = status;
         this.createdAt = createdAt;
@@ -37,6 +41,22 @@ public class OrderBO {
 
     public CustomerBO getCustomer() {
         return customer;
+    }
+
+    public SellerBO getSeller() {
+        return seller;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public BigDecimal getIncrease() {
+        return increase;
+    }
+
+    public BigDecimal getNetValue() {
+        return netValue;
     }
 
     public List<OrderItemBO> getItems() {

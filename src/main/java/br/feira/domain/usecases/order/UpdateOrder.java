@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import br.feira.domain.entities.bo.OrderBO;
 import br.feira.domain.entities.dtos.OrderDTO;
-import br.feira.domain.entities.mappers.CompanyMapper;
 import br.feira.domain.entities.mappers.OrderMapper;
 import br.feira.domain.repositories.IOrderRepository;
 

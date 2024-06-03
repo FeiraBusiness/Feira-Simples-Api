@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "FS_STOCKITEM")
+@Table(name = "FS_STOCK_ITEM")
 public class PgStockItem extends PanacheEntityBase {
 
     @Id

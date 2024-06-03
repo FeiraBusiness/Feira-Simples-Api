@@ -1,17 +1,16 @@
 package br.feira.domain.entities.dtos;
 
-import br.feira.domain.entities.bo.SellerBO;
-import br.feira.domain.entities.enums.EnumOrderStatus;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import br.feira.domain.entities.enums.EnumOrderStatus;
 
 public class OrderDTO {
 
     private String id;
     private CustomerDTO customer;
-    private SellerBO seller;
+    private SellerDTO seller;
     private BigDecimal discount;
     private BigDecimal increase;
     private BigDecimal netValue;
@@ -36,11 +35,11 @@ public class OrderDTO {
         this.customer = customer;
     }
 
-    public SellerBO getSeller() {
+    public SellerDTO getSeller() {
         return seller;
     }
 
-    public void setSeller(SellerBO seller) {
+    public void setSeller(SellerDTO seller) {
         this.seller = seller;
     }
 

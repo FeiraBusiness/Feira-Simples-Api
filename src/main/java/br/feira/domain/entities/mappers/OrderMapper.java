@@ -21,6 +21,10 @@ public class OrderMapper {
 
         dto.setId(bo.getId().toString());
         dto.setCustomer(CustomerMapper.toDTO(bo.getCustomer()));
+        dto.setSeller(SellerMapper.toDTO(bo.getSeller()));
+        dto.setDiscount(bo.getDiscount());
+        dto.setIncrease(bo.getIncrease());
+        dto.setNetValue(bo.getNetValue());
         dto.setItems(items);
         dto.setEnumOrderStatus(bo.getStatus());
         dto.setcreatedAt(bo.getcreatedAt());
@@ -33,6 +37,10 @@ public class OrderMapper {
         return new OrderBO(
                 dto.getId(),
                 CustomerMapper.toBO(dto.getCustomer()),
+                SellerMapper.toBO(dto.getSeller()),
+                dto.getDiscount(),
+                dto.getIncrease(),
+                dto.getNetValue(),
                 dto.getItems().stream().map(OrderItemMapper::toBO).collect(Collectors.toList()),
                 dto.getEnumOrderStatus(),
                 dto.getcreatedAt(),

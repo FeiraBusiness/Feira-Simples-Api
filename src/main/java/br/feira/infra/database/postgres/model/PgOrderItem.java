@@ -20,7 +20,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "FS_ORDERITEM")
+@Table(name = "FS_ORDER_ITEM")
 public class PgOrderItem extends PanacheEntityBase {
 
     @Id

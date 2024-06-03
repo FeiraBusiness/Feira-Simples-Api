@@ -1,5 +1,6 @@
 package br.feira.infra.database.postgres.model;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -16,11 +17,10 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "FS_ORDEM")
@@ -30,29 +30,38 @@ public class PgOrder extends PanacheEntityBase {
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "seller_id")
     private PgSeller seller;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private PgCustomer user;
+    @JoinColumn(name = "customer_id")
+    private PgCustomer customer;
 
-    @Column
+    @Column(name = "discount")
+    private BigDecimal discount;
+
+    @Column(name = "increase")
+    private BigDecimal increase;
+
+    @Column(name = "net_value")
+    private BigDecimal netValue;
+
+    @Column(name = "date")
     private LocalDateTime date;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<PgOrderItem> items;
 
-    @Column
+    @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private EnumOrderStatus status;
 
     @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATED_AT")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "UPDATE_AT")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     public UUID getId() {
@@ -63,12 +72,44 @@ public class PgOrder extends PanacheEntityBase {
         this.id = id;
     }
 
-    public PgCustomer getUser() {
-        return user;
+    public PgSeller getSeller() {
+        return seller;
     }
 
-    public void setUser(PgCustomer user) {
-        this.user = user;
+    public PgCustomer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(PgCustomer customer) {
+        this.customer = customer;
+    }
+
+    public void setSeller(PgSeller seller) {
+        this.seller = seller;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
+
+    public BigDecimal getIncrease() {
+        return increase;
+    }
+
+    public void setIncrease(BigDecimal increase) {
+        this.increase = increase;
+    }
+
+    public BigDecimal getNetValue() {
+        return netValue;
+    }
+
+    public void setNetValue(BigDecimal netValue) {
+        this.netValue = netValue;
     }
 
     public LocalDateTime getDate() {

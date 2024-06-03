@@ -18,10 +18,11 @@ public class CompanyService extends AbstractService {
     @Inject
     PgCompanyRepository repository;
 
+    @Transactional
     public CompanyDTO create(CompanyDTO dto) {
-        var bo = new CreateCompany(repository);
+        var create = new CreateCompany(repository);
 
-        return bo.execute(dto);
+        return create.execute(dto);
     }
 
     public List<CompanyDTO> listAll() {

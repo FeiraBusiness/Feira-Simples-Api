@@ -17,6 +17,7 @@ public class PgCompanyMapper {
         panache.setIsActive(bo.getIsActive());
         List<PgBranch> branches = bo.getBranchs().stream().map(PgBranchMapper::toEntity).toList();
         branches.forEach(branche -> branche.setCompany(panache));
+        panache.setBranches(branches);
         panache.setcreatedAt(bo.getcreatedAt());
         panache.setupdatedAt(bo.getUpdatedAt());
 

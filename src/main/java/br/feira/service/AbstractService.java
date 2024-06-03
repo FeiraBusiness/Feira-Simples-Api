@@ -6,7 +6,7 @@ import jakarta.inject.Inject;
 public abstract class AbstractService {
 
     @Inject
-    PgUserRepository pgUserRepository;
+    PgCustomerRepository pgUserRepository;
 
     @Inject
     PgProductRepository pgProductRepository;

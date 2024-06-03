@@ -1,7 +1,7 @@
 package br.feira.service;
 
 import br.feira.domain.entities.enums.EnumDBImpl;
-import br.feira.domain.repositories.IUserRepository;
+import br.feira.domain.repositories.ICustomerRepository;
 import io.quarkus.arc.All;
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -13,12 +13,12 @@ import java.util.Map;
 public class DbFactory {
 
     @All
-    private List<IUserRepository> implementations;
+    private List<ICustomerRepository> implementations;
 
-    private static final Map<EnumDBImpl, IUserRepository> serviceCache = new HashMap<>();
+    private static final Map<EnumDBImpl, ICustomerRepository> serviceCache = new HashMap<>();
 
-    public IUserRepository getImpl(EnumDBImpl impl) {
-        IUserRepository repository = serviceCache.get(impl);
+    public ICustomerRepository getImpl(EnumDBImpl impl) {
+        ICustomerRepository repository = serviceCache.get(impl);
 
         if (repository == null) {
             throw new RuntimeException("dbImpl");

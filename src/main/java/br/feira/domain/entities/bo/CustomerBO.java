@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import br.feira.domain.entities.enums.EnumGender;
 
-public class UserBO {
+public class CustomerBO {
 
     private UUID id;
     private String name;
@@ -21,10 +21,10 @@ public class UserBO {
     private LocalDateTime createAt;
     private LocalDateTime updatedAt;
 
-    public UserBO(String id, String name, String email, String cpfCnpj, EnumGender gender, String password,
-            String phoneNumber, Boolean isActive, List<AddressBO> address, LocalDateTime dateOfBirth,
-            LocalDateTime createAt,
-            LocalDateTime updatedAt) {
+    public CustomerBO(String id, String name, String email, String cpfCnpj, EnumGender gender, String password,
+                      String phoneNumber, Boolean isActive, List<AddressBO> address, LocalDateTime dateOfBirth,
+                      LocalDateTime createAt,
+                      LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.name = name;
         this.email = email;

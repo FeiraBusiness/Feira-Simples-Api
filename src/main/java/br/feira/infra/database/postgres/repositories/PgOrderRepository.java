@@ -45,7 +45,7 @@ public class PgOrderRepository implements IOrderRepository {
     public OrderBO merge(OrderBO bo) {
         PgOrder panache = PgOrderMapper.toEntity(bo);
 
-        panache.persist();
+        PgOrder.getEntityManager().merge(panache);
 
         return PgOrderMapper.toDomain(panache);
 

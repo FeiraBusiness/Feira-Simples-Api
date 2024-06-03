@@ -1,16 +1,16 @@
 package br.feira.infra.database.postgres.mappers;
 
-import br.feira.domain.entities.bo.UserBO;
+import br.feira.domain.entities.bo.CustomerBO;
 import br.feira.infra.database.postgres.model.PgAddress;
-import br.feira.infra.database.postgres.model.PgUser;
+import br.feira.infra.database.postgres.model.PgCustomer;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PgUserMapper {
+public class PgCustomerMapper {
 
-    public static PgUser toEntity(UserBO bo) {
-        var panache = new PgUser();
+    public static PgCustomer toEntity(CustomerBO bo) {
+        var panache = new PgCustomer();
 
         panache.setId(bo.getId());
         panache.setName(bo.getName());
@@ -30,8 +30,8 @@ public class PgUserMapper {
         return panache;
     }
 
-    public static UserBO toDomain(PgUser entity) {
-        var bo = new UserBO(
+    public static CustomerBO toDomain(PgCustomer entity) {
+        var bo = new CustomerBO(
                 entity.getId().toString(),
                 entity.getName(),
                 entity.getEmail(),

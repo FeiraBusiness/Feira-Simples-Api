@@ -44,7 +44,7 @@ public class PgProductRepository implements IProductRepository {
     public ProductBO merge(ProductBO bo) {
         PgProduct panache = PgProductMapper.toEntity(bo);
 
-        panache.persist();
+        PgProduct.getEntityManager().merge(panache);
 
         return PgProductMapper.toDomain(panache);
     }

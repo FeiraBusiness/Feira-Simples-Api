@@ -1,30 +1,75 @@
-package br.feira.domain.entities.dtos;
+package br.feira.infra.database.postgres.model;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import br.feira.domain.entities.enums.EnumGender;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
-public class UserDTO {
+@Entity
+@Table(name = "FS_CUSTOMER")
+public class PgCustomer extends PanacheEntityBase {
 
-    private String id;
+    @Id
+    private UUID id;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "CPF_CNPJ")
     private String cpfCnpj;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "GENDER")
     private EnumGender gender;
+
+    @Column(name = "PASSWORD")
     private String password;
+
+    @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
+
+    @Column(name = "IS_ACTIVE")
     private Boolean isActive;
-    private List<AddressDTO> address;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<PgAddress> address;
+
+    @Column(name = "DATE_OF_BIRTH")
     private LocalDateTime dateOfBirth;
-    private LocalDateTime createAt;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATED_AT")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "UPDATED_AT")
     private LocalDateTime updatedAt;
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -84,11 +129,11 @@ public class UserDTO {
         isActive = active;
     }
 
-    public List<AddressDTO> getAddress() {
+    public List<PgAddress> getAddress() {
         return address;
     }
 
-    public void setAddress(List<AddressDTO> address) {
+    public void setAddress(List<PgAddress> address) {
         this.address = address;
     }
 
@@ -100,12 +145,12 @@ public class UserDTO {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createAt;
+    public LocalDateTime getcreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(LocalDateTime createAt) {
-        this.createAt = createAt;
+    public void setcreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public LocalDateTime getUpdatedAt() {
@@ -115,4 +160,5 @@ public class UserDTO {
     public void setupdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
 }

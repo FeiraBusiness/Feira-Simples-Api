@@ -1,6 +1,7 @@
 package br.feira.domain.entities.enums;
 
-public enum EnumTypePayment {
+public enum EnumPaymentType {
+    
     PIX("PIX", 0),
     MONEY("MONEY", 1),
     CREDIT_CARD("CREDIT_CARD", 2),
@@ -9,7 +10,7 @@ public enum EnumTypePayment {
     private String key;
     private Integer value;
 
-    EnumTypePayment(String key, Integer value) {
+    EnumPaymentType(String key, Integer value) {
         this.key = key;
         this.value = value;
     }

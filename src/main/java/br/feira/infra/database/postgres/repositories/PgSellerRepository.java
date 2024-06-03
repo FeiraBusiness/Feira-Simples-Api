@@ -4,7 +4,7 @@ import br.feira.domain.entities.bo.SellerBO;
 import br.feira.domain.repositories.ISellerRepository;
 import br.feira.infra.database.postgres.mappers.PgSellerMapper;
 import br.feira.infra.database.postgres.model.PgSeller;
-import br.feira.infra.database.postgres.model.PgUser;
+import br.feira.infra.database.postgres.model.PgCustomer;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.NotFoundException;
 
@@ -26,7 +26,7 @@ public class PgSellerRepository implements ISellerRepository {
 
     @Override
     public List<SellerBO> listAll() {
-        List<PgSeller> list = PgUser.listAll();
+        List<PgSeller> list = PgCustomer.listAll();
 
         // Criar uma função para fazer isso sem precisar usar duas vezes o mapper;
         return list.stream().map(PgSellerMapper::toDomain).collect(Collectors.toList());
@@ -34,7 +34,7 @@ public class PgSellerRepository implements ISellerRepository {
 
     @Override
     public SellerBO findById(UUID id) {
-        PgSeller panache = PgUser.findById(id);
+        PgSeller panache = PgCustomer.findById(id);
 
         if (panache == null) {
             throw new NotFoundException("User ID " + id + " not found!");
@@ -47,7 +47,7 @@ public class PgSellerRepository implements ISellerRepository {
     public SellerBO merge(SellerBO bo) {
         PgSeller panache = PgSellerMapper.toEntity(bo);
 
-        panache.persist();
+        PgSeller.getEntityManager().merge(panache);
 
         return PgSellerMapper.toDomain(panache);
     }

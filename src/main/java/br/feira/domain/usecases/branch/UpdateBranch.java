@@ -22,7 +22,9 @@ public class UpdateBranch {
             throw new RuntimeException("Opa! Registro não encontrado");
         }
 
-        bo = repository.merge(bo);
+        bo = BranchMapper.toBO(dto);
+
+        repository.merge(bo);
 
         return BranchMapper.toDTO(bo);
     }

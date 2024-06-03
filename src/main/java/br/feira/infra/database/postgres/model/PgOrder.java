@@ -33,7 +33,7 @@ public class PgOrder extends PanacheEntityBase {
     private PgSeller seller;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private PgUser user;
+    private PgCustomer user;
 
     @Column
     private LocalDateTime date;
@@ -63,11 +63,11 @@ public class PgOrder extends PanacheEntityBase {
         this.id = id;
     }
 
-    public PgUser getUser() {
+    public PgCustomer getUser() {
         return user;
     }
 
-    public void setUser(PgUser user) {
+    public void setUser(PgCustomer user) {
         this.user = user;
     }
 

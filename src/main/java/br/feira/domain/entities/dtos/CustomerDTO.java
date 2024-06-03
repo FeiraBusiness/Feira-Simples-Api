@@ -1,75 +1,30 @@
-package br.feira.infra.database.postgres.model;
+package br.feira.domain.entities.dtos;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import br.feira.domain.entities.enums.EnumGender;
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
-@Entity
-@Table(name = "FS_USER")
-public class PgUser extends PanacheEntityBase {
+public class CustomerDTO {
 
-    @Id
-    private UUID id;
-
-    @Column(name = "NAME")
+    private String id;
     private String name;
-
-    @Column(name = "EMAIL")
     private String email;
-
-    @Column(name = "CPF_CNPJ")
     private String cpfCnpj;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "GENDER")
     private EnumGender gender;
-
-    @Column(name = "PASSWORD")
     private String password;
-
-    @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
-
-    @Column(name = "IS_ACTIVE")
     private Boolean isActive;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<PgAddress> address;
-
-    @Column(name = "DATE_OF_BIRTH")
+    private List<AddressDTO> address;
     private LocalDateTime dateOfBirth;
-
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "CREATED_AT")
-    private LocalDateTime createdAt;
-
-    @UpdateTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "UPDATED_AT")
+    private LocalDateTime createAt;
     private LocalDateTime updatedAt;
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -129,11 +84,11 @@ public class PgUser extends PanacheEntityBase {
         isActive = active;
     }
 
-    public List<PgAddress> getAddress() {
+    public List<AddressDTO> getAddress() {
         return address;
     }
 
-    public void setAddress(List<PgAddress> address) {
+    public void setAddress(List<AddressDTO> address) {
         this.address = address;
     }
 
@@ -145,12 +100,12 @@ public class PgUser extends PanacheEntityBase {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public LocalDateTime getcreatedAt() {
-        return createdAt;
+    public LocalDateTime getCreatedAt() {
+        return createAt;
     }
 
-    public void setcreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreateAt(LocalDateTime createAt) {
+        this.createAt = createAt;
     }
 
     public LocalDateTime getUpdatedAt() {
@@ -160,5 +115,4 @@ public class PgUser extends PanacheEntityBase {
     public void setupdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-
 }

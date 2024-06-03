@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
-import br.feira.domain.entities.dtos.UserDTO;
-import br.feira.service.UserService;
+import br.feira.domain.entities.dtos.CustomerDTO;
+import br.feira.service.CustomerService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -21,13 +21,13 @@ import jakarta.ws.rs.core.Response;
 @Path("api/user")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class UserController {
+public class CustomerController {
 
     @Inject
-    UserService service;
+    CustomerService service;
 
     @POST
-    public Response create(UserDTO dto) {
+    public Response create(CustomerDTO dto) {
         var create = service.create(dto);
 
         return Response.ok(create).build();
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @PATCH
-    public Response update(@HeaderParam("id") UUID id, @RequestBody UserDTO dto) {
+    public Response update(@HeaderParam("id") UUID id, @RequestBody CustomerDTO dto) {
         var update = service.merge(id, dto);
         
         return Response.ok(update).build();

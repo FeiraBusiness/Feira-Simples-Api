@@ -1,6 +1,6 @@
 package br.feira.infra.database.postgres.model;
 
-import br.feira.domain.entities.enums.EnumTypePayment;
+import br.feira.domain.entities.enums.EnumPaymentType;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,12 +17,12 @@ public class PgPayment extends PanacheEntityBase {
     @Id
     private UUID id;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private PgOrder order;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "TYPE_PAYMENT")
-    private EnumTypePayment typePayment;
+    private EnumPaymentType typePayment;
 
     @Column(name = "VALUE")
     private BigDecimal value;
@@ -53,11 +53,11 @@ public class PgPayment extends PanacheEntityBase {
         this.order = order;
     }
 
-    public EnumTypePayment getTypePayment() {
+    public EnumPaymentType getTypePayment() {
         return typePayment;
     }
 
-    public void setTypePayment(EnumTypePayment typePayment) {
+    public void setTypePayment(EnumPaymentType typePayment) {
         this.typePayment = typePayment;
     }
 

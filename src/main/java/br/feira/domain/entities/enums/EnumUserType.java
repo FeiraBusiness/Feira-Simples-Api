@@ -1,12 +1,14 @@
 package br.feira.domain.entities.enums;
 
-public enum EnumTypeMovimentation {
-    PENDING("INPUT",0),
-    PROCESSING("OUTPUT", 1);
+public enum EnumUserType {
+
+    SELLER("SELLER", 0),
+    COSTUMER("COSTUMER", 1);
+
     private String key;
     private Integer value;
 
-    EnumTypeMovimentation(String key, Integer value) {
+    EnumUserType(String key, Integer value) {
         this.key = key;
         this.value = value;
     }
@@ -18,4 +20,5 @@ public enum EnumTypeMovimentation {
     public Integer getValue() {
         return value;
     }
+
 }

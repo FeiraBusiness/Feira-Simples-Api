@@ -22,7 +22,9 @@ public class UpdatePayment {
             throw new RuntimeException("Opa! Registro não encontrado");
         }
 
-        bo = repository.merge(bo);
+        bo = PaymentMapper.toBO(dto);
+
+        repository.merge(bo);
 
         return PaymentMapper.toDTO(bo);
     }

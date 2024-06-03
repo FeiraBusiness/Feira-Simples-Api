@@ -46,7 +46,7 @@ public class PgCompanyRepository implements ICompanyRepository {
     public CompanyBO merge(CompanyBO bo) {
         PgCompany panache = PgCompanyMapper.toEntity(bo);
 
-        panache.persist();
+        PgCompany.getEntityManager().merge(panache);
 
         return PgCompanyMapper.toDomain(panache);
     }

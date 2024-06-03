@@ -48,7 +48,7 @@ public class PgPaymentRepository implements IPaymentRepository {
     public PaymentBO merge(PaymentBO bo) {
         PgPayment panache = PgPaymentMapper.toEntity(bo);
 
-        panache.persist();
+        PgPayment.getEntityManager().merge(panache);
 
         return PgPaymentMapper.toDomain(panache);
     }

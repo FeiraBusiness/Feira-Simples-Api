@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import br.feira.domain.entities.bo.OrderBO;
 import br.feira.domain.entities.dtos.OrderDTO;
+import br.feira.domain.entities.mappers.CompanyMapper;
 import br.feira.domain.entities.mappers.OrderMapper;
 import br.feira.domain.repositories.IOrderRepository;
 
@@ -22,7 +23,9 @@ public class UpdateOrder {
             throw new RuntimeException("Opa! Registro não encontrado");
         }
 
-        bo = repository.merge(bo);
+        bo = OrderMapper.toBO(dto);
+
+        repository.merge(bo);
 
         return OrderMapper.toDTO(bo);
     }

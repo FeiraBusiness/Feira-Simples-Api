@@ -1,9 +1,9 @@
 package br.feira.domain.entities.bo;
 
+import br.feira.domain.entities.enums.EnumGender;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
-
-import br.feira.domain.entities.enums.EnumGender;
 
 public class SellerBO {
 
@@ -20,8 +20,8 @@ public class SellerBO {
     private LocalDateTime updatedAt;
 
     public SellerBO(String id, String name, String email, String cpfCnpj, EnumGender gender, String password,
-            String phoneNumber, Boolean isActive, LocalDateTime dateOfBirth, LocalDateTime createdAt,
-            LocalDateTime updatedAt) {
+                    String phoneNumber, Boolean isActive, LocalDateTime dateOfBirth, LocalDateTime createdAt,
+                    LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.name = name;
         this.email = email;

@@ -5,6 +5,7 @@ import br.feira.domain.repositories.IBranchRepository;
 import br.feira.infra.database.postgres.mappers.PgBranchMapper;
 import br.feira.infra.database.postgres.model.PgBranch;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.EntityManager;
 import jakarta.ws.rs.NotFoundException;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class PgBranchRepository implements IBranchRepository {
     public BranchBO merge(BranchBO bo) {
         PgBranch panache = PgBranchMapper.toEntity(bo);
 
-        panache.persist();
+        PgBranch.getEntityManager().merge(panache);
 
         return PgBranchMapper.toDomain(panache);
     }

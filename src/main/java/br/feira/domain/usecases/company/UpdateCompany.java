@@ -22,7 +22,9 @@ public class UpdateCompany {
             throw new RuntimeException("Opa! Registro não encontrado");
         }
 
-        bo = repository.merge(bo);
+        bo = CompanyMapper.toBO(dto);
+
+        repository.merge(bo);
 
         return CompanyMapper.toDTO(bo);
     }

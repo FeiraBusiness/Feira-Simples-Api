@@ -6,7 +6,7 @@ import java.util.List;
 public class StockDTO {
 
     private String id;
-    private List<OrderItemDTO> items;
+    private List<StockItemDTO> items;
     private Integer totalAmount;
     private LocalDateTime createAt;
     private LocalDateTime updatedAt;
@@ -19,11 +19,11 @@ public class StockDTO {
         this.id = id;
     }
 
-    public List<OrderItemDTO> getItems() {
+    public List<StockItemDTO> getItems() {
         return items;
     }
 
-    public void setItems(List<OrderItemDTO> items) {
+    public void setItems(List<StockItemDTO> items) {
         this.items = items;
     }
 

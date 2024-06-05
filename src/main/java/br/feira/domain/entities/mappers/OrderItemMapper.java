@@ -12,13 +12,20 @@ public class OrderItemMapper {
         dto.setQuantity(bo.getQuantity());
         dto.setUnitaryValue(bo.getPrice());
         dto.setProduct(ProductMapper.toDTO(bo.getProduct()));
+        dto.setCreateAt(bo.getCreatedAt());
+        dto.setupdatedAt(bo.getUpdatedAt());
 
         return dto;
     }
 
     public static OrderItemBO toBO(OrderItemDTO dto) {
-        return new OrderItemBO(dto.getId(), dto.getQuantity(), dto.getUnitaryValue(),
-                ProductMapper.toBO(dto.getProduct()), dto.getCreatedAt(), dto.getUpdatedAt());
+        return new OrderItemBO(
+                dto.getId(),
+                dto.getQuantity(),
+                dto.getUnitaryValue(),
+                ProductMapper.toBO(dto.getProduct()),
+                dto.getCreatedAt(),
+                dto.getUpdatedAt());
     }
-    
+
 }

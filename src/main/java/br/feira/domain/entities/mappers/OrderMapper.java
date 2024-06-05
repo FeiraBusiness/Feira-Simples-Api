@@ -1,19 +1,20 @@
 package br.feira.domain.entities.mappers;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import br.feira.domain.entities.bo.OrderBO;
 import br.feira.domain.entities.dtos.OrderDTO;
 import br.feira.domain.entities.dtos.OrderItemDTO;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class OrderMapper {
 
     public static OrderDTO toDTO(OrderBO bo) {
         OrderDTO dto = new OrderDTO();
-        List<OrderItemDTO> items = null;
+        List<OrderItemDTO> items = new ArrayList<>();
 
-        if (bo.getItems() != null) {// Fazer validacao
+        if (bo.getItems() != null) {
             items = bo.getItems().stream()
                     .map(OrderItemMapper::toDTO)
                     .collect(Collectors.toList());

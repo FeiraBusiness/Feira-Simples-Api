@@ -7,12 +7,12 @@ import java.util.UUID;
 public class StockBO {
 
     private UUID id;
-    private List<OrderItemBO> items;
+    private List<StockItemBO> items;
     private Integer totalAmount;
     private LocalDateTime createAt;
     private LocalDateTime updatedAt;
 
-    public StockBO(String id, List<OrderItemBO> items, Integer totalAmount, LocalDateTime createAt, LocalDateTime updatedAt) {
+    public StockBO(String id, List<StockItemBO> items, Integer totalAmount, LocalDateTime createAt, LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.items = items;
         this.totalAmount = totalAmount;
@@ -24,7 +24,7 @@ public class StockBO {
         return id;
     }
 
-    public List<OrderItemBO> getItems() {
+    public List<StockItemBO> getItems() {
         return items;
     }
 

@@ -14,7 +14,6 @@ public class StockItemMapper {
         dto.setcreatedAt(bo.getCreatedAt());
         dto.setupdatedAt(bo.getUpdatedAt());
 
-
         return dto;
     }
 

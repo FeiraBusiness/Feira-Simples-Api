@@ -1,14 +1,25 @@
 package br.feira.domain.entities.mappers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import br.feira.domain.entities.bo.CustomerBO;
+import br.feira.domain.entities.dtos.AddressDTO;
 import br.feira.domain.entities.dtos.CustomerDTO;
 
 public class CustomerMapper {
 
     public static CustomerDTO toDTO(CustomerBO bo) {
         CustomerDTO dto = new CustomerDTO();
+        List<AddressDTO> addresses = new ArrayList<>();
+
+        if (bo.getAddress() != null) {
+            addresses = bo.getAddress()
+                    .stream()
+                    .map(AddressMapper::toDTO)
+                    .collect(Collectors.toList());
+        }
 
         dto.setId(bo.getId().toString());
         dto.setName(bo.getName());
@@ -18,7 +29,7 @@ public class CustomerMapper {
         dto.setPassword(bo.getPassword());
         dto.setPhoneNumber(bo.getPhoneNumber());
         dto.setIsActive(bo.getIsActive());
-        dto.setAddress(bo.getAddress().stream().map(AddressMapper::toDTO).collect(Collectors.toList()));
+        dto.setAddress(addresses);
         dto.setDateOfBirth(bo.getDateOfBirth());
         dto.setCreateAt(bo.getCreatedAt());
         dto.setupdatedAt(bo.getUpdatedAt());

@@ -2,19 +2,12 @@ package br.feira.presenters.controller;
 
 import java.util.UUID;
 
+import jakarta.ws.rs.*;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import br.feira.domain.entities.dtos.OrderDTO;
 import br.feira.service.OrderService;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.HeaderParam;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -48,7 +41,7 @@ public class OrderController {
         return Response.ok(findBy).build();
     }
 
-    @PUT
+    @PATCH
     public Response update(@HeaderParam("id") UUID id, @RequestBody OrderDTO dto) {
         var update = service.merge(id, dto);
 
@@ -57,6 +50,7 @@ public class OrderController {
 
     @DELETE
     public Response delete(@HeaderParam("id") UUID id) {
+        service.delete(id);
         return Response.noContent().build();
     }
 

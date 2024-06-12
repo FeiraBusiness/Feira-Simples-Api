@@ -1,24 +1,16 @@
 package br.feira.presenters.controller;
 
-import java.util.UUID;
-
-import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
-
 import br.feira.domain.entities.dtos.CustomerDTO;
 import br.feira.service.CustomerService;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.HeaderParam;
-import jakarta.ws.rs.PATCH;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
-@Path("api/user")
+import java.util.UUID;
+
+@Path("api/customer")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerController {
@@ -51,12 +43,13 @@ public class CustomerController {
     @PATCH
     public Response update(@HeaderParam("id") UUID id, @RequestBody CustomerDTO dto) {
         var update = service.merge(id, dto);
-        
+
         return Response.ok(update).build();
     }
 
     @DELETE
     public Response delete(@HeaderParam("id") UUID id) {
+        service.delete(id);
         return Response.noContent().build();
     }
 

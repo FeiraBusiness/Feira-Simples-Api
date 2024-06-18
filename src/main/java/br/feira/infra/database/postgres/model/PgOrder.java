@@ -23,17 +23,19 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "FS_ORDER")
+@Table(name = "FS_ORDEM")
 public class PgOrder extends PanacheEntityBase {
 
     @Id
     private UUID id;
 
-    @Column(name = "seller_id")
-    private UUID seller;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "seller_id")
+    private PgSeller seller;
 
-    @Column(name = "customer_id")
-    private UUID customer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private PgCustomer customer;
 
     @Column(name = "discount")
     private BigDecimal discount;
@@ -70,20 +72,20 @@ public class PgOrder extends PanacheEntityBase {
         this.id = id;
     }
 
-    public UUID getSeller() {
+    public PgSeller getSeller() {
         return seller;
     }
 
-    public void setSeller(UUID seller) {
-        this.seller = seller;
-    }
-
-    public UUID getCustomer() {
+    public PgCustomer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(UUID customer) {
+    public void setCustomer(PgCustomer customer) {
         this.customer = customer;
+    }
+
+    public void setSeller(PgSeller seller) {
+        this.seller = seller;
     }
 
     public BigDecimal getDiscount() {

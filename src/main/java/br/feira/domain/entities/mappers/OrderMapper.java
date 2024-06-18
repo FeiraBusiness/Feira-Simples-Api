@@ -21,8 +21,8 @@ public class OrderMapper {
         }
 
         dto.setId(bo.getId().toString());
-        dto.setCustomer(bo.getCustomer());
-        dto.setSeller(bo.getSeller());
+        dto.setCustomer(CustomerMapper.toDTO(bo.getCustomer()));
+        dto.setSeller(SellerMapper.toDTO(bo.getSeller()));
         dto.setDiscount(bo.getDiscount());
         dto.setIncrease(bo.getIncrease());
         dto.setNetValue(bo.getNetValue());
@@ -37,8 +37,8 @@ public class OrderMapper {
     public static OrderBO toBO(OrderDTO dto) {
         return new OrderBO(
                 dto.getId(),
-                dto.getCustomer(),
-                dto.getSeller(),
+                CustomerMapper.toBO(dto.getCustomer()),
+                SellerMapper.toBO(dto.getSeller()),
                 dto.getDiscount(),
                 dto.getIncrease(),
                 dto.getNetValue(),

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .submenu {
+            display: none;
+            padding-left: 15px;
+        }
+        .submenu a {
+            padding: 8px;
+            margin-left: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #343a40;
+        }
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <h2>Menu</h2>
+    <a href="#">Home</a>
+    <a href="#" onclick="toggleSubMenu('seller')">Seller</a>
+    <div id="sellerSubMenu" class="submenu">
+        <a href="#" onclick="loadContent('addSeller')">Cadastrar Seller</a>
+        <a href="#">Alterar Seller</a>
+    </div>
+</div>
+<div class="content" id="mainContent">
+    <h1>Bem-vindo ao Dashboard</h1>
+    <p>Este é um exemplo simples de uma tela de home para um dashboard com um menu lateral expandido.</p>
+</div>
+
+<script>
+    function toggleSubMenu(subMenuId) {
+        const subMenu = document.getElementById(`${subMenuId}SubMenu`);
+        if (subMenu.style.display === 'block') {
+            subMenu.style.display = 'none';
+        } else {
+            subMenu.style.display = 'block';
+        }
+    }
+
+    async function loadContent(contentType) {
+        const mainContent = document.getElementById('mainContent');
+        switch (contentType) {
+            case 'addSeller':
+                mainContent.innerHTML = await fetch('addSeller.html').then(response => response.text());
+                break;
+            default:
+                mainContent.innerHTML = '<h1>Bem-vindo ao Dashboard</h1><p>Este é um exemplo simples de uma tela de home para um dashboard com um menu lateral expandido.</p>';
+                break;
+        }
+    }
+</script>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>

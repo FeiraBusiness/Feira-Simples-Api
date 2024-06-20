@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pedidos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e9ecef;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Lista de Pedidos</h1>
+    </div>
+
+    <table id="orderTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Vendedor</th>
+            <th>Status</th>
+            <th>Data de Criação</th>
+            <th>Data de Atualização</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody id="orderList">
+        <!-- Os pedidos serão listados aqui dinamicamente -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    async function fetchOrders() {
+        try {
+            const response = await fetch('http://localhost:8080/api/order/all');
+            if (!response.ok) {
+                throw new Error('Erro ao recuperar a lista de pedidos.');
+            }
+            const orders = await response.json();
+            const orderList = document.getElementById('orderList');
+            orderList.innerHTML = ''; // Limpa a lista antes de adicionar os novos dados
+            orders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.customer}</td>
+                    <td>${order.seller}</td>
+                    <td>${order.status}</td>
+                    <td>${formatDateTime(order.createdAt)}</td>
+                    <td>${formatDateTime(order.updatedAt)}</td>
+                    <td><button onclick="viewOrder('${order.id}')">Ver Detalhes</button></td>
+                `;
+                orderList.appendChild(row);
+            });
+        } catch (error) {
+            console.error('Erro ao buscar pedidos:', error);
+            alert('Erro ao buscar pedidos.');
+        }
+    }
+
+    function formatDateTime(dateTimeString) {
+        if (!dateTimeString) return '';
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const dateTime = new Date(dateTimeString);
+        return dateTime.toLocaleDateString('pt-BR', options);
+    }
+
+    function viewOrder(orderId) {
+        // Aqui você pode redirecionar para uma página de detalhes do pedido ou fazer algo com o ID do pedido clicado
+        alert(`Visualizar pedido com ID ${orderId}`);
+        // Exemplo: window.location.href = `order-details.html?id=${orderId}`;
+    }
+
+    // Carrega a lista de pedidos ao carregar a página
+    window.onload = fetchOrders;
+</script>
+</body>
+</html>

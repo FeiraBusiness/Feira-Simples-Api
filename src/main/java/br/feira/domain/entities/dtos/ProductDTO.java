@@ -1,5 +1,7 @@
 package br.feira.domain.entities.dtos;
 
+import jakarta.json.bind.annotation.JsonbDateFormat;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -15,9 +17,9 @@ public class ProductDTO {
     private double weight;
     private double rating;
     private boolean isActive;
-    private LocalDateTime expirationDate;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+//    private LocalDateTime expirationDate;
+//    private LocalDateTime createdAt;
+//    private LocalDateTime updatedAt;
 
     public String getId() {
         return id;
@@ -99,27 +101,27 @@ public class ProductDTO {
         isActive = active;
     }
 
-    public LocalDateTime getExpirationDate() {
-        return expirationDate;
-    }
-
-    public void setExpirationDate(LocalDateTime expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public LocalDateTime getcreatedAt() {
-        return createdAt;
-    }
-
-    public void setcreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+//    public LocalDateTime getExpirationDate() {
+//        return expirationDate;
+//    }
+//
+//    public void setExpirationDate(LocalDateTime expirationDate) {
+//        this.expirationDate = expirationDate;
+//    }
+//
+//    public LocalDateTime getcreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public void setcreatedAt(LocalDateTime createdAt) {
+//        this.createdAt = createdAt;
+//    }
+//
+//    public LocalDateTime getUpdatedAt() {
+//        return updatedAt;
+//    }
+//
+//    public void setUpdatedAt(LocalDateTime updatedAt) {
+//        this.updatedAt = updatedAt;
+//    }
 }

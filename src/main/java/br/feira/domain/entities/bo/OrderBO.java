@@ -10,8 +10,8 @@ import br.feira.domain.entities.enums.EnumOrderStatus;
 public class OrderBO {
 
     private UUID id;
-    private SellerBO seller;
-    private CustomerBO customer;
+    private UUID seller;
+    private UUID customer;
     private BigDecimal discount;
     private BigDecimal increase;
     private BigDecimal netValue;
@@ -20,7 +20,7 @@ public class OrderBO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public OrderBO(String id, CustomerBO customer, SellerBO seller, BigDecimal discount, BigDecimal increase,
+    public OrderBO(String id, UUID customer, UUID seller, BigDecimal discount, BigDecimal increase,
             BigDecimal netValue, List<OrderItemBO> items, EnumOrderStatus status, LocalDateTime createdAt,
             LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
@@ -39,11 +39,11 @@ public class OrderBO {
         return id;
     }
 
-    public CustomerBO getCustomer() {
+    public UUID getCustomer() {
         return customer;
     }
 
-    public SellerBO getSeller() {
+    public UUID getSeller() {
         return seller;
     }
 

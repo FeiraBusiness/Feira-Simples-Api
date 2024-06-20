@@ -26,7 +26,7 @@ public class PgSellerRepository implements ISellerRepository {
 
     @Override
     public List<SellerBO> listAll() {
-        List<PgSeller> list = PgCustomer.listAll();
+        List<PgSeller> list = PgSeller.listAll();
 
         // Criar uma função para fazer isso sem precisar usar duas vezes o mapper;
         return list.stream().map(PgSellerMapper::toDomain).collect(Collectors.toList());
@@ -34,7 +34,7 @@ public class PgSellerRepository implements ISellerRepository {
 
     @Override
     public SellerBO findById(UUID id) {
-        PgSeller panache = PgCustomer.findById(id);
+        PgSeller panache = PgSeller.findById(id);
 
         if (panache == null) {
             throw new NotFoundException("User ID " + id + " not found!");

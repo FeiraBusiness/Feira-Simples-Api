@@ -16,13 +16,12 @@ public class ProductBO {
     private double weight;
     private double rating;
     private boolean isActive;
-    private LocalDateTime expirationDate;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+//    private LocalDateTime expirationDate;
+//    private LocalDateTime createdAt;
+//    private LocalDateTime updatedAt;
 
     public ProductBO(String id, String code, String name, String description, BigDecimal value, String category,
-            String imageUrl, double weight, double rating, boolean isActive, LocalDateTime expirationDate,
-            LocalDateTime createdAt, LocalDateTime updatedAt) {
+            String imageUrl, double weight, double rating, boolean isActive) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.code = code;
         this.name = name;
@@ -33,9 +32,9 @@ public class ProductBO {
         this.weight = weight;
         this.rating = rating;
         this.isActive = isActive;
-        this.expirationDate = expirationDate;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+//        this.expirationDate = expirationDate;
+//        this.createdAt = createdAt;
+//        this.updatedAt = updatedAt;
     }
 
     public UUID getId() {
@@ -78,15 +77,15 @@ public class ProductBO {
         return isActive;
     }
 
-    public LocalDateTime getExpirationDate() {
-        return expirationDate;
-    }
-
-    public LocalDateTime getcreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
+//    public LocalDateTime getExpirationDate() {
+//        return expirationDate;
+//    }
+//
+//    public LocalDateTime getcreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public LocalDateTime getUpdatedAt() {
+//        return updatedAt;
+//    }
 }

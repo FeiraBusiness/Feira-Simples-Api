@@ -29,13 +29,11 @@ public class PgOrder extends PanacheEntityBase {
     @Id
     private UUID id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "seller_id")
-    private PgSeller seller;
+    private UUID seller;
 
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
-    private PgCustomer customer;
+    private UUID customer;
 
     @Column(name = "discount")
     private BigDecimal discount;
@@ -72,19 +70,19 @@ public class PgOrder extends PanacheEntityBase {
         this.id = id;
     }
 
-    public PgSeller getSeller() {
+    public UUID getSeller() {
         return seller;
     }
 
-    public PgCustomer getCustomer() {
+    public UUID getCustomer() {
         return customer;
     }
 
-    public void setCustomer(PgCustomer customer) {
+    public void setCustomer(UUID customer) {
         this.customer = customer;
     }
 
-    public void setSeller(PgSeller seller) {
+    public void setSeller(UUID seller) {
         this.seller = seller;
     }
 

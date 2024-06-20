@@ -18,9 +18,9 @@ public class ProductMapper {
         dto.setWeight(bo.getWeight());
         dto.setRating(bo.getRating());
         dto.setIsActive(bo.getIsActive());
-        dto.setExpirationDate(bo.getExpirationDate());
-        dto.setcreatedAt(bo.getcreatedAt());
-        dto.setUpdatedAt(bo.getUpdatedAt());
+//        dto.setExpirationDate(bo.getExpirationDate());
+//        dto.setcreatedAt(bo.getcreatedAt());
+//        dto.setUpdatedAt(bo.getUpdatedAt());
 
         return dto;
     }
@@ -36,10 +36,10 @@ public class ProductMapper {
                 dto.getImageUrl(),
                 dto.getWeight(),
                 dto.getRating(),
-                dto.getIsActive(),
-                dto.getExpirationDate(),
-                dto.getcreatedAt(),
-                dto.getUpdatedAt());
+                dto.getIsActive());
+//                dto.getExpirationDate(),
+//                dto.getcreatedAt(),
+//                dto.getUpdatedAt());
     }
 
 }

@@ -19,8 +19,8 @@ public class PgOrderMapper {
         items.forEach(item -> item.setOrder(panache));
 
         panache.setId(bo.getId());
-        panache.setCustomer(PgCustomerMapper.toEntity(bo.getCustomer()));
-        panache.setSeller(PgSellerMapper.toEntity(bo.getSeller()));
+        panache.setCustomer(bo.getCustomer());
+        panache.setSeller(bo.getSeller());
         panache.setDiscount(bo.getDiscount());
         panache.setIncrease(bo.getIncrease());
         panache.setNetValue(bo.getNetValue());
@@ -35,8 +35,8 @@ public class PgOrderMapper {
     public static OrderBO toDomain(PgOrder entity) {
         var bo = new OrderBO(
                 entity.getId().toString(),
-                PgCustomerMapper.toDomain(entity.getCustomer()),
-                PgSellerMapper.toDomain(entity.getSeller()),
+                entity.getCustomer(),
+                entity.getSeller(),
                 entity.getDiscount(),
                 entity.getIncrease(),
                 entity.getNetValue(),

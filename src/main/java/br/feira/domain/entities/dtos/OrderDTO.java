@@ -3,14 +3,15 @@ package br.feira.domain.entities.dtos;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import br.feira.domain.entities.enums.EnumOrderStatus;
 
 public class OrderDTO {
 
     private String id;
-    private CustomerDTO customer;
-    private SellerDTO seller;
+    private UUID customer;
+    private UUID seller;
     private BigDecimal discount;
     private BigDecimal increase;
     private BigDecimal netValue;
@@ -27,19 +28,19 @@ public class OrderDTO {
         this.id = id;
     }
 
-    public CustomerDTO getCustomer() {
+    public UUID getCustomer() {
         return customer;
     }
 
-    public void setCustomer(CustomerDTO customer) {
+    public void setCustomer(UUID customer) {
         this.customer = customer;
     }
 
-    public SellerDTO getSeller() {
+    public UUID getSeller() {
         return seller;
     }
 
-    public void setSeller(SellerDTO seller) {
+    public void setSeller(UUID seller) {
         this.seller = seller;
     }
 

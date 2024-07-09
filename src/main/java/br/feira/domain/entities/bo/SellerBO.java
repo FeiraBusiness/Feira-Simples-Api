@@ -1,6 +1,9 @@
 package br.feira.domain.entities.bo;
 
+import br.feira.domain.entities.enums.EnumErrorCode;
 import br.feira.domain.entities.enums.EnumGender;
+import br.feira.domain.utils.StringUtil;
+import br.feira.domain.utils.exceptions.FeiraException;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -33,6 +36,8 @@ public class SellerBO {
         this.dateOfBirth = dateOfBirth;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+
+        validate();
     }
 
     public UUID getId() {
@@ -77,5 +82,32 @@ public class SellerBO {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    private void validate() {
+        if (StringUtil.isNullOrEmpty(name)) {
+            throw new FeiraException(EnumErrorCode.CAMPO_OBRIGATORIO, "name");
+        }
+
+        if (StringUtil.isNullOrEmpty(email)) {
+            throw new FeiraException(EnumErrorCode.CAMPO_OBRIGATORIO, "email");
+        }
+
+        if (StringUtil.isNullOrEmpty(cpfCnpj)) {
+            throw new FeiraException(EnumErrorCode.CAMPO_OBRIGATORIO, "cpfCnpj");
+        }
+
+        if (StringUtil.isNullOrEmpty(password)) {
+            throw new FeiraException(EnumErrorCode.CAMPO_OBRIGATORIO, "cpfCnpj");
+        }
+
+        if (StringUtil.isNullOrEmpty(phoneNumber)) {
+            throw new FeiraException(EnumErrorCode.CAMPO_OBRIGATORIO, "cpfCnpj");
+        }
+
+        if (StringUtil.isNullOrEmpty(dateOfBirth.toString())) {
+            throw new FeiraException(EnumErrorCode.CAMPO_OBRIGATORIO, "dateOfBirth");
+        }
+
     }
 }

@@ -57,6 +57,7 @@ public class CompanyController {
 
     @DELETE
     public Response delete(@HeaderParam("id") UUID id) {
+        service.delete(id);
         return Response.noContent().build();
     }
 

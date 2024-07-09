@@ -57,6 +57,7 @@ public class OrderController {
 
     @DELETE
     public Response delete(@HeaderParam("id") UUID id) {
+        service.delete(id);
         return Response.noContent().build();
     }
 

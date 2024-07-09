@@ -18,7 +18,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("api/user")
+@Path("api/customer")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerController {
@@ -57,7 +57,7 @@ public class CustomerController {
 
     @DELETE
     public Response delete(@HeaderParam("id") UUID id) {
+        service.delete(id);
         return Response.noContent().build();
     }
-
 }

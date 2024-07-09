@@ -38,6 +38,12 @@ public class CustomerMapper {
     }
 
     public static CustomerBO toBO(CustomerDTO dto) {
+        List<AddressDTO> addresses = new ArrayList<>();
+
+        if (dto.getAddress() != null) {
+            throw new RuntimeException("");
+        }
+
         return new CustomerBO(
                 dto.getId(),
                 dto.getName(),

@@ -2,7 +2,7 @@ package br.feira.domain.entities.enums;
 
 public enum EnumGender {
 
-    WOMAN("WOMAN"), MAN("MAN");
+    WOMAN("WOMAN"), MAN("MAN"), OTHER("OTHER") ;
 
     private String key;
 

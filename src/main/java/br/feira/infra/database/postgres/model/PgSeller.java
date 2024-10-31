@@ -35,6 +35,9 @@ public class PgSeller extends PanacheEntityBase {
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
+    @Column(name = "IMAGE_URL")
+    private String imageUrl;
+
     @Column(name = "IS_ACTIVE")
     private Boolean isActive;
 
@@ -105,6 +108,14 @@ public class PgSeller extends PanacheEntityBase {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Boolean getIsActive() {

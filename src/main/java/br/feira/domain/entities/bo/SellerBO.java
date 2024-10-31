@@ -14,13 +14,14 @@ public class SellerBO {
     private EnumGender gender;
     private String password;
     private String phoneNumber;
+    private String imageUrl;
     private Boolean isActive;
     private LocalDateTime dateOfBirth;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public SellerBO(String id, String name, String email, String cpfCnpj, EnumGender gender, String password,
-                    String phoneNumber, Boolean isActive, LocalDateTime dateOfBirth, LocalDateTime createdAt,
+                    String phoneNumber, String imageUrl, Boolean isActive, LocalDateTime dateOfBirth, LocalDateTime createdAt,
                     LocalDateTime updatedAt) {
         this.id = id != null ? UUID.fromString(id) : UUID.randomUUID();
         this.name = name;
@@ -28,6 +29,7 @@ public class SellerBO {
         this.cpfCnpj = cpfCnpj;
         this.gender = gender;
         this.password = password;
+        this.imageUrl = imageUrl;
         this.phoneNumber = phoneNumber;
         this.isActive = isActive;
         this.dateOfBirth = dateOfBirth;
@@ -61,6 +63,10 @@ public class SellerBO {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getimageUrl() {
+        return imageUrl;
     }
 
     public Boolean getIsActive() {

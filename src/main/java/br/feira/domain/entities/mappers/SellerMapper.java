@@ -15,6 +15,7 @@ public class SellerMapper {
         dto.setGender(bo.getGender());
         dto.setPassword(bo.getPassword());
         dto.setPhoneNumber(bo.getPhoneNumber());
+        dto.setimageUrl(bo.getimageUrl());
         dto.setIsActive(bo.getIsActive());
         dto.setDateOfBirth(bo.getDateOfBirth());
         dto.setcreatedAt(bo.getcreatedAt());
@@ -32,6 +33,7 @@ public class SellerMapper {
                 dto.getGender(),
                 dto.getPassword(),
                 dto.getPhoneNumber(),
+                dto.getimageUrl(),
                 dto.getIsActive(),
                 dto.getDateOfBirth(),
                 dto.getcreatedAt(),

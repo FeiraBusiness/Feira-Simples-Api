@@ -15,6 +15,7 @@ public class PgSellerMapper {
         panache.setGender(bo.getGender());
         panache.setPassword(bo.getPassword());
         panache.setPhoneNumber(bo.getPhoneNumber());
+        panache.setImageUrl(bo.getimageUrl());
         panache.setIsActive(bo.getIsActive());
         panache.setDateOfBirth(bo.getDateOfBirth());
         panache.setcreatedAt(bo.getcreatedAt());
@@ -32,6 +33,7 @@ public class PgSellerMapper {
                 entity.getGender(),
                 entity.getPassword(),
                 entity.getPhoneNumber(),
+                entity.getImageUrl(),
                 entity.getIsActive(),
                 entity.getDateOfBirth(),
                 entity.getcreatedAt(),

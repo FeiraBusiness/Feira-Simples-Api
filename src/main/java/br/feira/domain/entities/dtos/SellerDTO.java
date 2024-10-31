@@ -1,8 +1,9 @@
 package br.feira.domain.entities.dtos;
 
-import java.time.LocalDateTime;
-
 import br.feira.domain.entities.enums.EnumGender;
+import jakarta.json.bind.annotation.JsonbDateFormat;
+
+import java.time.LocalDateTime;
 
 public class SellerDTO {
 
@@ -13,9 +14,15 @@ public class SellerDTO {
     private EnumGender gender;
     private String password;
     private String phoneNumber;
+    private String imageUrl;
     private Boolean isActive;
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dateOfBirth;
+
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt;
+
+    @JsonbDateFormat(value = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime updatedAt;
 
     public String getId() {
@@ -72,6 +79,14 @@ public class SellerDTO {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getimageUrl() {
+        return imageUrl;
+    }
+
+    public void setimageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Boolean getIsActive() {

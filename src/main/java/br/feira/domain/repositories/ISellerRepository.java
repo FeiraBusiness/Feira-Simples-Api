@@ -1,6 +1,7 @@
 package br.feira.domain.repositories;
 
 import br.feira.domain.entities.bo.SellerBO;
+import br.feira.domain.entities.dtos.SellerDTO;
 
 import java.util.List;
 import java.util.UUID;
